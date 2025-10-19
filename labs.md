@@ -1,5 +1,5 @@
 # Cursor AI Workshop
-## Mastering AI-Powered Development
+## Leveraging AI-Powered Development
 ## Session Labs
 ## Revision 1.0 - 10/19/25
 
