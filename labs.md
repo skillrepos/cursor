@@ -1,5 +1,5 @@
-# Cursor AI Workshop
-## Leveraging AI-Powered Development
+# Cursor AI for Developers
+## Hands-on AI-Assisted Coding
 ## Session Labs
 ## Revision 1.0 - 10/19/25
 
@@ -15,14 +15,16 @@
 
 **Setup**
 
-1. From the workshop root directory, execute the commands below and navigate to the API directory. Then open the folder in Cursor using one of the available methods (drag folder onto Cursor icon, use File → Open Folder in Cursor, or use the CLI command).
-
+1. From the workshop root directory, execute the commands below and navigate to the API directory. 
 ```
-cp -r labs/lab1-cursor-modes/starter my-api
+cd cursor
+cp -r labs/cursor-modes/starter my-api
 cd my-api
 ```
 
 <br><br>
+
+2. Open the *my-api* folder in Cursor using one of the available methods (drag folder onto Cursor icon, use File → Open Folder in Cursor, or use the CLI command).
 
 2. Verify that you see the following files:
    - `server.js` - Basic Express server with TODO
