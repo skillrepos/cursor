@@ -1,0 +1,38 @@
+{
+  "name": "Cursor Workshop Environment",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:18",
+
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-vscode.vscode-typescript-next",
+        "bradlc.vscode-tailwindcss"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+        "files.autoSave": "afterDelay",
+        "files.autoSaveDelay": 1000,
+        "editor.suggestSelection": "first",
+        "editor.inlineSuggest.enabled": true
+      }
+    }
+  },
+
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "18"
+    },
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+
+  "postCreateCommand": "npm install -g npm@latest",
+
+  "forwardPorts": [3000, 5173, 8080],
+
+  "remoteUser": "node"
+}
