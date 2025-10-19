@@ -1,7 +1,7 @@
 # Cursor AI Workshop
 ## Mastering AI-Powered Development
 ## Session Labs
-## Revision 1.0 - 01/19/25
+## Revision 1.0 - 10/19/25
 
 **Follow the startup instructions in the README.md file IF NOT ALREADY DONE!**
 
@@ -9,7 +9,7 @@
 
 ---
 
-**Lab 1 - Mastering Cursor's Three Modes - Build a REST API**
+**Lab 1 - Understanding Cursor's Three Modes - Build a REST API**
 
 **Purpose: In this lab, we'll learn when to use Chat, Edit (Cmd+K), and Composer modes by building a real Express API. You will use Chat mode for planning and questions, Edit mode for focused single-file changes, and Composer mode for multi-file coordination.**
 
