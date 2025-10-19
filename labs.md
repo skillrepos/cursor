@@ -1,17 +1,15 @@
 # Cursor AI for Developers
 ## Hands-on AI-Assisted Coding
 ## Session Labs
-## Revision 1.0 - 10/19/25
+## Revision 1.1 - 10/19/25
 
 **Follow the startup instructions in the README.md file IF NOT ALREADY DONE!**
-
-**NOTE: To copy and paste, you may need to use keyboard commands - CTRL-C and CTRL-V (or CMD-C and CMD-V on Mac). Chrome may work best for this.**
 
 ---
 
 **Lab 1 - Understanding Cursor's Three Modes - Build a REST API**
 
-**Purpose: In this lab, we'll learn when to use Chat, Edit (Cmd+K), and Composer modes by building a real Express API. You will use Chat mode for planning and questions, Edit mode for focused single-file changes, and Composer mode for multi-file coordination.**
+**Purpose: In this lab, we'll learn when to use Chat and Edit (Cmd+K) modes by building a real Express API. You will use Chat mode for planning and questions and Edit mode for focused single-file changes, and Composer mode for multi-file coordination.**
 
 **Setup**
 
@@ -24,17 +22,17 @@ cd my-api
 
 <br><br>
 
-2. Open the *my-api* folder in Cursor using one of the available methods (drag folder onto Cursor icon, use File → Open Folder in Cursor, or use the CLI command).
-
-2. Verify that you see the following files:
+2. Open the *my-api* folder in Cursor using one of the available methods (drag folder onto Cursor icon, use File → Open Folder in Cursor, or use the CLI command). Verify that you see the following files:
    - `server.js` - Basic Express server with TODO
    - `package.json` - Dependencies (express, jsonwebtoken, bcrypt)
 
+![open in Cursor](./images/cursor3.png?raw=true "Open in Cursor")
+
 <br><br>
 
-**Part 1: Planning with Chat Mode**
-
 3. Let's see how we can use Chat Mode to plan and understand changes. Open Chat by pressing Cmd+L (Mac) or Ctrl+L (Windows). Make sure the mode dropdown is set to **"Ask"**.
+
+![Ask mode](./images/cursor4.png?raw=true "Ask mode")
 
 <br><br>
 
@@ -52,17 +50,17 @@ What's the best architecture for this Express API?
 What middleware should I include?
 ```
 
+![Ask for advice](./images/cursor5.png?raw=true "Ask for advice")
+
 <br><br>
 
 5. Review the response from Chat. It should provide recommended project structure, middleware suggestions, and best practices.
 
-<br><br>
-
-6. Now, let's look at some single file editing via inline Chat.  Open `server.js` in Cursor. You should see the basic Express server with a TODO comment.
+![Cursor response](./images/cursor6.png?raw=true "Cursor response")
 
 <br><br>
 
-7. Place cursor after `app.use(express.json());` and press `Cmd+K` (or `Ctrl+K`). Type or copy/paste this specific instruction:
+6. Now, let's look at some single file editing via inline Chat.  Open `server.js` in Cursor. You should see the basic Express server with a TODO comment. Place cursor after `app.use(express.json());` and press `Cmd+K` (or `Ctrl+K`). Type or copy/paste this specific instruction:
 
 ```
 Add all 5 CRUD routes for tasks with:
@@ -72,7 +70,15 @@ Add all 5 CRUD routes for tasks with:
 - Comments explaining each route
 ```
 
-Press Enter and wait for the inline suggestion. Review the code, then accept with Cmd+Enter.
+![Cursor prompt](./images/cursor7.png?raw=true "Cursor prompt")
+
+<br><br>
+
+7. Press Enter and wait for the inline suggestion. Review the code, then accept with the *Accept* button at the start of the changes or the *Keep* button at the bottom.
+
+![Accept](./images/cursor8.png?raw=true "Accept")
+
+![Keep](./images/cursor9.png?raw=true "Keep")
 
 <br><br>
 
@@ -85,11 +91,13 @@ Include 404 handler
 Return proper JSON error responses with status codes
 ```
 
-Review and accept the changes.
+![Add error handling](./images/cursor10.png?raw=true "Add error handling")
+
+9. Review and accept the changes as before with either *Accept* at the top or *Keep* for each independent change.
 
 <br><br>
 
-10. Select just the POST route, press Cmd+K, and add input validation:
+10. Let's do one more. Select just the POST route, press Cmd+K, and add input validation:
 
 ```
 Add validation middleware before the handler that checks:
@@ -99,37 +107,33 @@ Add validation middleware before the handler that checks:
 Return 400 with validation errors if invalid
 ```
 
-Accept the changes.
+Accept the changes as before.
 
-**📝 Key Learning:** Use Cmd+K (Edit mode) when making focused changes to one file. You see the diff inline and can accept/reject easily.
+![Keep](./images/cursor11.png?raw=true "Keep")
 
-<br><br>
 
-**Part 3: Multi-File Coordination with Composer**
+<p align="center">
+**[END OF LAB]**
+</p>
+</br></br>
 
-11. Open Composer by pressing Cmd+I (Mac) or Ctrl+I (Windows), or click the Composer icon in the sidebar.
+**Lab 2 - Multi-File Coordination with Composer**
 
-<br><br>
+**Purpose: In this lab, we'll utilize Composer mode for multi-file coordination. We'll continue working with the same Express app that we used in Lab 1.AI workflows.**
 
-12. Choose your mode. For this lab, try **"Plan"** mode to see the planning + execution workflow:
-
-**Plan Mode (Recommended for this lab) ⭐**
-- Set the mode dropdown to **"Plan"**
-- Cursor creates a detailed plan and shows it to you
-- You can edit the plan if needed
-- You click "Approve Plan"
-- Cursor executes and creates all files automatically
-- You see each step as it happens
-
-**Agent Mode (Fastest)**
-- Set the mode dropdown to **"Agent"**
-- Cursor executes immediately without showing detailed plan
-- Files are created automatically
-- Faster but less transparency
+1. Working in the same project as in Lab 1, open Composer by pressing Cmd+I (Mac) or Ctrl+I (Windows), or click the Composer icon in the sidebar.
 
 <br><br>
 
-13. Type this in Composer to request a multi-file authentication feature:
+2. Choose **Plan** mode so we can see the planning + execution by setting the mode dropdown to **"Plan"**.
+
+
+![Plan mode](./images/cursor12.png?raw=true "Plan mode")
+
+
+<br><br>
+
+3. Type this in Composer to request a multi-file authentication feature:
 
 ```
 Create a complete authentication system for the API:
@@ -157,27 +161,48 @@ Create a complete authentication system for the API:
 Make sure all files work together seamlessly.
 ```
 
-<br><br>
-
-14. If using Plan mode, Cursor will show you a detailed plan with steps it will take and list files it will create/modify. Review the plan carefully, read each step, edit if needed, then click **"Approve Plan"** when ready.
+![Plan mode prompt](./images/cursor13.png?raw=true "Plan mode prompt")
 
 <br><br>
 
-15. After approving (or immediately if using Agent mode), watch as Cursor creates each file automatically, shows progress as it works, and displays the final results.
+5. In Plan mode, Cursor will prompt you for any needed information/responses to questions and then show you a detailed plan with steps it will take and list files it will create/modify. You will probably encounter some multiple-choice questions first from Cursor like the ones shown here:
+
+![Plan mode questions](./images/cursor14.png?raw=true "Plan mode questions")
+
+6. To answer these, you can just indicate in the chat the question number and the response. There are multiple ways to do this, but one way is with this kind of response. Go ahead and enter this text and hit Enter.
+
+```
+1-a, 2-a, 3-a
+```
+
+![Plan mode responses](./images/cursor15.png?raw=true "Plan mode responses")
+
+7. After it gets the answers to the questions, Cursor will provide a detailed plan with a set of "todos". It will probably open up a file with the detailed plan automatically, but if not, you can click on the "Read detailed plan" link to open it up.
+
+
+![Detailed plan](./images/cursor16.png?raw=true "Detailed plan")
 
 <br><br>
 
-16. After execution, check the file explorer - new files should appear. Open each file to review the code and verify:
-   - `middleware/auth.js` exists
-   - `models/User.js` exists
-   - `server.js` has auth routes added
-   - `.env.example` exists
+8. Review the plan carefully, read each step, then click **"Build"** when ready to have Cursor execute the plan.
+
+<br><br>
+
+9. After clicking **"Build"**, watch as Cursor creates each file automatically, shows progress as it works, and displays the final results.
+
+![Implemented plan](./images/cursor17.png?raw=true "Implemented plan")
+
+<br><br>
+
+10. Above the chat area, you should see text like **"3 Files"** indicating how many files were changed. You can expand that and see the proposed changes by clicking on the files. You can review each proposed change and select **"Undo"** or **"Keep"** on each, or you can just select **"Keep All"** in the area above chat to keep all proposed changes.
+
+![Reviewing changes](./images/cursor18.png?raw=true "Reviewing changes")
+
+<br><br>
 
 **📝 Key Learning:** Use Composer when changes span multiple files and need coordination. It understands the relationships between files.
 
 <br><br>
-
-
 
 <p align="center">
 **[END OF LAB]**
