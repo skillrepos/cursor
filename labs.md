@@ -15,10 +15,10 @@
 
 **Setup**
 
-1. From the workshop root directory, run the setup script and navigate to the API directory. Then open the folder in Cursor using one of the available methods (drag folder onto Cursor icon, use File → Open Folder in Cursor, or use the CLI command).
+1. From the workshop root directory, execute the commands below and navigate to the API directory. Then open the folder in Cursor using one of the available methods (drag folder onto Cursor icon, use File → Open Folder in Cursor, or use the CLI command).
 
 ```
-npm run lab1:setup
+cp -r labs/lab1-cursor-modes/starter my-api
 cd my-api
 ```
 
@@ -28,31 +28,15 @@ cd my-api
    - `server.js` - Basic Express server with TODO
    - `package.json` - Dependencies (express, jsonwebtoken, bcrypt)
 
-**Important: Understanding Cursor's Modes**
-
-Cursor Chat has three modes:
-- **"Ask"** - Chat-only, AI gives advice/code, YOU execute manually
-- **"Plan"** - AI creates a plan → You approve → AI executes the plan
-- **"Agent"** - Fully autonomous, AI executes without showing detailed plan first
-
-For this lab:
-- **Part 1 (Chat):** Use **"Ask"** mode - just getting advice, no execution
-- **Part 2 (Cmd+K):** No mode selection - this is direct inline editing
-- **Part 3 (Composer):** Use **"Plan"** or **"Agent"** mode to see autonomous file creation
-
 <br><br>
 
 **Part 1: Planning with Chat Mode**
 
-3. Open Chat by pressing Cmd+L (Mac) or Ctrl+L (Windows).
+3. Let's see how we can use Chat Mode to plan and understand changes. Open Chat by pressing Cmd+L (Mac) or Ctrl+L (Windows). Make sure the mode dropdown is set to **"Ask"**.
 
 <br><br>
 
-4. In the Chat panel, make sure the mode dropdown at the top is set to **"Ask"**. This is perfect for planning because you're just asking for advice with no code execution needed yet.
-
-<br><br>
-
-5. Ask for architecture advice with the following prompt:
+4. Ask for architecture advice with the prompt below. Hit Enter when done. (You can copy and paste the prompt into Cursor.)
 
 ```
 I need to build a REST API for a task management system with these endpoints:
@@ -68,19 +52,15 @@ What middleware should I include?
 
 <br><br>
 
-6. Review the response from Chat. It should provide recommended project structure, middleware suggestions, and best practices.
-
-**📝 Key Learning:** Use Chat when you need to understand the big picture or plan your approach.
+5. Review the response from Chat. It should provide recommended project structure, middleware suggestions, and best practices.
 
 <br><br>
 
-**Part 2: Single-File Editing with Edit Mode**
-
-7. Open `server.js` in Cursor. You should see the basic Express server with a TODO comment.
+6. Now, let's look at some single file editing via inline Chat.  Open `server.js` in Cursor. You should see the basic Express server with a TODO comment.
 
 <br><br>
 
-8. Place cursor after `app.use(express.json());` and press `Cmd+K` (or `Ctrl+K`). Type this specific instruction:
+7. Place cursor after `app.use(express.json());` and press `Cmd+K` (or `Ctrl+K`). Type or copy/paste this specific instruction:
 
 ```
 Add all 5 CRUD routes for tasks with:
@@ -94,7 +74,7 @@ Press Enter and wait for the inline suggestion. Review the code, then accept wit
 
 <br><br>
 
-9. Select the entire file (Cmd+A), press Cmd+K, and provide this instruction to add error handling:
+8. Select the entire file (Cmd+A), press Cmd+K, and provide this instruction to add error handling:
 
 ```
 Wrap all route handlers with try-catch
@@ -195,23 +175,7 @@ Make sure all files work together seamlessly.
 
 <br><br>
 
-**Verification**
 
-After completing this lab, you should have:
-- Used Chat to plan the API architecture
-- Used Cmd+K to add routes to server.js
-- Used Cmd+K to add error handling
-- Used Cmd+K to add validation
-- Used Composer to create multi-file auth system
-- Understanding of when to use each mode
-
-**Key Takeaways:**
-
-1. **Chat = Brain** 🧠 - Planning, understanding, learning
-2. **Edit = Scalpel** 🔪 - Precise, focused changes
-3. **Composer = Conductor** 🎼 - Orchestrates multiple files
-4. **Use the right tool for the job** - Don't use a hammer for everything
-5. **Always review AI output** - AI is powerful but not perfect
 
 <p align="center">
 **[END OF LAB]**
