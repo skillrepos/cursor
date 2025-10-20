@@ -9,7 +9,7 @@
 
 **Lab 1 - Understanding Cursor's Modes - Build a REST API**
 
-**Purpose: In this lab, we'll learn when to use Chat and Edit (Cmd+K) modes by building a real Express API. You will use Chat mode for planning and questions and Edit mode for focused single-file changes, and Composer mode for multi-file coordination.**
+**Purpose: In this lab, we'll see how to use Cursor's autocomplete for code suggestions.**
 
 **Setup**
 
@@ -30,13 +30,69 @@ cd my-api
 
 <br><br>
 
-3. Let's see how we can use Chat Mode to plan and understand changes. Open Chat by pressing Cmd+L (Mac) or Ctrl+L (Windows). Make sure the mode dropdown is set to **"Ask"**.
+3. First, let's enable Tab autocomplete if it's not already on. Go to Cursor Settings (Cmd+, or Ctrl+,), search for "Cursor Tab", and make sure it's enabled under Features > Cursor Tab. Also make sure that "Partial Accepts" is enabled.
+
+![Enable Tab](./images/cursor56.png?raw=true "Enable Tab")
+
+<br><br>
+
+4. Open `server.js`. Start typing a new function below the existing code:
+
+```javascript
+// Start typing this:
+function validateTask
+```
+
+As you type, you should see **gray ghost text** appear - this is Cursor suggesting the rest of the code. Press **Tab** to accept the suggestion.
+
+![Auto1](./images/cursor52.png?raw=true "Auto1")
+
+<br><br>
+
+5. Try another example. Start typing a comment:
+
+```javascript
+// Function to get all tasks from
+```
+
+Notice how Cursor predicts you might write "database" or "storage" and suggests completing your comment. Instead of using **Tab** to accept the full change, use the **Cmd/Ctrl + right arrow** to accept one word at a time.
+
+
+![Auto2](./images/cursor53.png?raw=true "Auto2")
+
+<br><br>
+
+6. Now try writing a function signature:
+
+```javascript
+async function createTask(req
+```
+
+Cursor should suggest the remaining parameters like `req, res` or similar. Press Tab to accept.
+
+![Auto3](./images/cursor54.png?raw=true "Auto3")
+
+
+<br><br>
+
+7. To avoid any issues down the line, you can just highlight and delete the code that's been accepted.
+
+<p align="center">
+**[END OF LAB]**
+</p>
+</br></br>
+
+**Lab 2 - Understanding Cursor's Modes - Build a REST API**
+
+**Purpose: In this lab, we'll learn when to use Chat and Edit (Cmd+K) modes by building a real Express API. You will use Chat mode for planning and questions and Edit mode for focused single-file changes, and Composer mode for multi-file coordination.**
+
+1. Let's see how we can use Chat Mode to plan and understand changes. Open Chat by pressing Cmd+L (Mac) or Ctrl+L (Windows). Make sure the mode dropdown is set to **"Ask"**.
 
 ![Ask mode](./images/cursor4.png?raw=true "Ask mode")
 
 <br><br>
 
-4. Ask for architecture advice with the prompt below. Hit Enter when done. (You can copy and paste the prompt into Cursor.)
+2. Ask for architecture advice with the prompt below. Hit Enter when done. (You can copy and paste the prompt into Cursor.)
 
 ```
 I need to build a REST API for a task management system with these endpoints:
@@ -54,13 +110,13 @@ What middleware should I include?
 
 <br><br>
 
-5. Review the response from Chat. It should provide recommended project structure, middleware suggestions, and best practices.
+3. Review the response from Chat. It should provide recommended project structure, middleware suggestions, and best practices.
 
 ![Cursor response](./images/cursor6.png?raw=true "Cursor response")
 
 <br><br>
 
-6. Now, let's look at some single file editing via inline Chat.  Open `server.js` in Cursor. You should see the basic Express server with a TODO comment. Place cursor after `app.use(express.json());` and press `Cmd+K` (or `Ctrl+K`). Type or copy/paste this specific instruction:
+4. Now, let's look at some single file editing via inline Chat.  Open `server.js` in Cursor. You should see the basic Express server with a TODO comment. Place cursor after `app.use(express.json());` and press `Cmd+K` (or `Ctrl+K`). Type or copy/paste this specific instruction:
 
 ```
 Add all 5 CRUD routes for tasks with:
@@ -74,7 +130,7 @@ Add all 5 CRUD routes for tasks with:
 
 <br><br>
 
-7. Press Enter and wait for the inline suggestion. Review the code, then accept with the *Accept* button at the start of the changes or the *Keep* button at the bottom.
+5. Press Enter and wait for the inline suggestion. Review the code, then accept with the *Accept* button at the start of the changes or the *Keep* button at the bottom.
 
 ![Accept](./images/cursor8.png?raw=true "Accept")
 
@@ -82,7 +138,7 @@ Add all 5 CRUD routes for tasks with:
 
 <br><br>
 
-8. Select the entire file (Cmd+A), press Cmd+K, and provide this instruction to add error handling:
+6. Select the entire file (Cmd+A), press Cmd+K, and provide this instruction to add error handling:
 
 ```
 Wrap all route handlers with try-catch
@@ -93,11 +149,11 @@ Return proper JSON error responses with status codes
 
 ![Add error handling](./images/cursor10.png?raw=true "Add error handling")
 
-9. Review and accept the changes as before with either *Accept* at the top or *Keep* for each independent change.
+7. Review and accept the changes as before with either *Accept* at the top or *Keep* for each independent change.
 
 <br><br>
 
-10. Let's do one more. Select just the POST route, press Cmd+K, and add input validation:
+8. Let's do one more. Select just the POST route, press Cmd+K, and add input validation:
 
 ```
 Add validation middleware before the handler that checks:
@@ -117,7 +173,7 @@ Accept the changes as before.
 </p>
 </br></br>
 
-**Lab 2 - Multi-File Coordination with Composer**
+**Lab 3 - Multi-File Coordination with Composer**
 
 **Purpose: In this lab, we'll utilize Composer mode for multi-file coordination. We'll continue working with the same Express app that we used in Lab 1.AI workflows.**
 
@@ -209,7 +265,7 @@ Make sure all files work together seamlessly.
 </p>
 </br></br>
 
-**Lab 3 - Project Rules & AI Agents - Build Consistent, Automated Workflows**
+**Lab 4 - Project Rules & AI Agents - Build Consistent, Automated Workflows**
 
 **Purpose: In this lab, we'll master .cursorrules for project standards and AGENTS.md for autonomous AI workflows. You will create .cursorrules to enforce team coding standards, write AGENTS.md to guide AI Agent behavior, and use Agent Mode with Plan Mode for complex tasks.**
 
@@ -468,7 +524,7 @@ After completing this lab, you should have:
 </p>
 </br></br>
 
-**Lab 4 - Code Review & Git with AI**
+**Lab 5 - Code Review & Git with AI**
 
 **Purpose: Learn how to use Cursor to review code for improvements and handle git operations like commits and branches.**
 
@@ -586,7 +642,7 @@ Try reviewing the middleware/auth.js file and ask Cursor for security improvemen
 </p>
 </br></br>
 
-**Lab 5 - Debug with AI - Using Chat and Context Symbols**
+**Lab 6 - Debug with AI - Using Chat and Context Symbols**
 
 **Purpose: Learn how to use Chat mode with @ symbols to debug errors quickly.**
 
@@ -741,204 +797,4 @@ Break something in your code (introduce a bug), then use Chat with @ symbols to 
 </br></br>
 
 
-**Lab 5 - Cursor Agent CLI - Automate AI Tasks from Terminal (Optional - Requires Pro)**
 
-**⚠️ Note: This lab is OPTIONAL and requires a paid Cursor Pro subscription ($20/month).**
-
-**Purpose: Learn to use cursor-agent CLI for batch operations and automation. This is powerful for refactoring entire codebases, adding documentation, or running AI tasks in CI/CD pipelines.**
-
-**Duration:** 10 minutes
-
-**Prerequisites:**
-- ⚠️ **Cursor Pro subscription required** ($20/month) - CLI shares your IDE usage pool
-- Terminal access
-- Your my-api project from previous labs
-
-**If you don't have Pro:** You can skip this lab. Labs 1-4 cover all the free features of Cursor you need to be productive!
-
-**Setup**
-
-1. Install cursor-agent CLI (if not already installed):
-
-```bash
-curl https://cursor.com/install -fsSL | bash
-```
-
-<br><br>
-
-2. Verify installation:
-
-```bash
-cursor-agent --version
-```
-
-<br><br>
-
-**Part 1: Interactive Chat Mode**
-
-3. Navigate to your my-api project and start an interactive session:
-
-```bash
-cd my-api
-cursor-agent
-```
-
-This opens an interactive terminal chat with the AI that can see and modify your codebase.
-
-<br><br>
-
-4. Try a simple task in the interactive session:
-
-```
-Add JSDoc comments to all functions in server.js
-```
-
-<br><br>
-
-5. Review the proposed changes. The CLI will:
-   - Show you what files it wants to modify
-   - Show you the diff of changes
-   - Ask for your approval before applying
-
-Type `y` to accept or `n` to reject. Type `exit` to leave the session.
-
-<br><br>
-
-**Part 2: Non-Interactive Mode**
-
-6. Run a task directly from the command line (non-interactive):
-
-```bash
-cursor-agent chat "Find any console.log statements and replace them with proper logging using a logger"
-```
-
-This runs the task and exits. Review the changes it proposes.
-
-<br><br>
-
-**Part 3: Batch Operations**
-
-7. Try a batch operation across multiple files:
-
-```bash
-cursor-agent "Convert all var declarations to const or let across the entire project"
-```
-
-Notice how cursor-agent:
-- Scans all files in the project
-- Identifies all `var` declarations
-- Proposes changes across multiple files
-- Asks for approval before applying
-
-<br><br>
-
-**Part 4: Managing Sessions**
-
-8. List previous conversations:
-
-```bash
-cursor-agent ls
-```
-
-<br><br>
-
-9. Resume your last session:
-
-```bash
-cursor-agent resume
-```
-
-This continues where you left off, maintaining context from your previous conversation.
-
-<br><br>
-
-**Part 5: Advanced Usage**
-
-10. Run a task with automatic testing:
-
-```bash
-cursor-agent "Add input validation to all POST routes. Run npm test after applying changes."
-```
-
-The CLI can:
-- Make changes
-- Run tests automatically
-- Report results
-- All from the terminal!
-
-<br><br>
-
-**When to Use CLI vs IDE**
-
-**Use cursor-agent CLI when:**
-- ✅ Batch operations across many files
-- ✅ Automation in scripts or CI/CD
-- ✅ Quick terminal-based fixes
-- ✅ Remote server work (SSH)
-- ✅ Already in terminal workflow
-
-**Use Cursor IDE when:**
-- ✅ Active development and exploration
-- ✅ Need visual file explorer
-- ✅ Want inline diff view
-- ✅ Complex debugging
-- ✅ Multi-tab editing
-
-<br><br>
-
-**Verification**
-
-You've successfully:
-- Installed and used cursor-agent CLI
-- Run interactive and non-interactive sessions
-- Made batch changes across multiple files
-- Managed conversation history
-- Understood CLI vs IDE use cases
-
-**Key Takeaways:**
-
-1. **CLI for Automation** - cursor-agent CLI enables scripting AI tasks and CI/CD integration
-2. **Shares Your Subscription** - Uses the same Pro plan as Cursor IDE (same usage pool)
-3. **Safety First** - Always requires approval for file changes and shell commands
-4. **Batch Power** - Excellent for codebase-wide refactors (add comments, convert patterns, etc.)
-5. **Terminal Native** - Works great in SSH sessions, CI pipelines, or terminal-focused workflows
-6. **Session Management** - Resume conversations, list history, continue where you left off
-
-**Warning:** CLI is in beta. It can read, modify, and delete files. Only use in trusted environments and always review changes before accepting.
-
-<p align="center">
-**[END OF LAB]**
-</p>
-</br></br>
-
-<p align="center">
-**WORKSHOP COMPLETE! 🎉**
-</p>
-
-You've now learned:
-- ✅ Chat Mode - Planning and questions
-- ✅ Cmd+K (Edit Mode) - Focused single-file changes
-- ✅ Composer Mode - Multi-file coordination
-- ✅ .cursorrules - Project standards
-- ✅ AGENTS.md - Workflow templates
-- ✅ Background Agents - Parallel work
-- ✅ Plan Mode - Transparent execution
-- ✅ cursor-agent CLI - Terminal automation and batch operations
-- ✅ @ Symbols - Context for better AI answers
-
-**What You Can Do Now:**
-- Use Chat, Cmd+K, and Composer effectively for different tasks
-- Configure projects with .cursorrules and AGENTS.md
-- Automate batch operations with cursor-agent CLI
-- Debug errors with AI assistance using @ symbols
-- Work faster and smarter with AI assistance
-
-**Next Steps:**
-1. **Practice** - Use these techniques in your real projects
-2. **Start Small** - Begin with simple .cursorrules, add more as needed
-3. **Experiment** - Try different prompts and approaches
-4. **Share** - Teach your team what you learned
-
-**Congratulations on completing the Cursor AI Workshop!**
-
-You're now equipped to code faster and smarter with AI assistance. 🚀
