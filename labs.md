@@ -468,7 +468,125 @@ After completing this lab, you should have:
 </p>
 </br></br>
 
-**Lab 4 - Debug with AI - Using Chat and Context Symbols**
+**Lab 4 - Code Review & Git with AI**
+
+**Purpose: Learn how to use Cursor to review code for improvements and handle git operations like commits and branches.**
+
+
+**When You'll Use This:**
+- Before committing code (review your own changes)
+- When reviewing pull requests
+- When you need help with git commands
+- When creating commit messages
+
+
+1. Open your `server.js` file. Let's ask Cursor to review the code. Open a new Chat with the "+" sign, set mode to **"Ask"**, and type:
+
+```
+@File server.js - Review this code and suggest improvements for:
+- Security issues
+- Code quality
+- Best practices
+- Performance optimizations
+```
+
+![Request to review](./images/cursor50.png?raw=true "Request to review")
+
+<br><br>
+
+2. Review Cursor's suggestions. You'll likely see recommendations like:
+   - Adding rate limiting
+   - Improving error messages
+   - Adding input sanitization
+   - Using helmet for security headers
+   - Better logging practices
+
+<br><br>
+
+3. Now ask for specific review on a function. Select the `validateTask` function (click and drag to highlight it), then press Cmd+L and type:
+
+```
+@Selection - Review this validation function. What could be improved?
+```
+
+Notice how Cursor gives more focused feedback when you use @Selection on specific code.
+
+<br><br>
+
+**Part 2: Git Operations (4 min)**
+
+4. Let's commit your changes. Open Chat (Cmd+L), set mode to **"Agent"** (we want Cursor to execute git commands), and type:
+
+```
+Check git status and create a commit with all my changes. Write a good commit message that describes what was built in these labs.
+```
+
+<br><br>
+
+5. Cursor will:
+   - Run `git status` to see changes
+   - Stage files with `git add`
+   - Generate a descriptive commit message
+   - Show you the commit message before committing
+   - Ask for your approval
+
+Review the commit message and approve if it looks good.
+
+<br><br>
+
+6. Create a new branch for experimentation. In Chat (Agent mode), type:
+
+```
+Create a new git branch called "experiment/refactoring" and switch to it
+```
+
+Cursor will run `git checkout -b experiment/refactoring` for you.
+
+<br><br>
+
+7. Try asking Cursor to help with other git operations:
+
+```
+Show me the git log for the last 3 commits in a readable format
+```
+
+or
+
+```
+What files have I changed since the last commit?
+```
+
+**📝 Key Learning:** Cursor can execute git commands for you in Agent mode, write commit messages, create branches, and explain git concepts.
+
+<br><br>
+
+**Verification**
+
+You've successfully learned:
+- How to ask Cursor to review entire files with @File
+- How to review specific functions with @Selection
+- How to use Agent mode for git operations
+- How to let Cursor write commit messages
+- How to create branches with AI help
+
+**Key Takeaways:**
+
+1. **Code Review = Find Issues Early** - Use @File or @Selection to get AI feedback before committing
+2. **Agent Mode for Git** - Let Cursor execute git commands when in Agent mode
+3. **Better Commit Messages** - AI writes descriptive commits based on actual changes
+4. **Learn Git** - Ask Cursor to explain any git command you don't understand
+5. **Safe Automation** - Cursor always shows you what it will do before executing
+
+**Practice Challenge:**
+
+Try reviewing the middleware/auth.js file and ask Cursor for security improvements. Then commit any changes you make with AI-generated commit messages.
+
+<p align="center">
+**[END OF LAB]**
+</p>
+</br></br>
+
+**Lab 5 - Debug with AI - Using Chat and Context Symbols**
 
 **Purpose: Learn how to use Chat mode with @ symbols to debug errors quickly.**
 
