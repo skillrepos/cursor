@@ -7,7 +7,7 @@
 
 ---
 
-**Lab 1 - Understanding Cursor's Three Modes - Build a REST API**
+**Lab 1 - Understanding Cursor's Modes - Build a REST API**
 
 **Purpose: In this lab, we'll learn when to use Chat and Edit (Cmd+K) modes by building a real Express API. You will use Chat mode for planning and questions and Edit mode for focused single-file changes, and Composer mode for multi-file coordination.**
 
@@ -468,118 +468,359 @@ After completing this lab, you should have:
 </p>
 </br></br>
 
-**Lab 3 - Refactor One Function - Modernize Callback Code**
+**Lab 4 - Debug with AI - Using Chat and Context Symbols**
 
-**Purpose: In this lab, we'll use Cmd+K to refactor a single callback-based function to modern async/await. This is a focused, practical introduction to code modernization.**
+**Purpose: Learn how to use Chat mode with @ symbols to debug errors quickly.**
 
-**Duration:** 5 minutes
+**When You'll Use This:**
+- When you get an error message you don't understand
+- When code isn't working and you don't know why
+- When you need to understand how existing code works
 
-1. Open your `server.js` from Lab 1 (in the my-api folder). Add the code below, which is a simple function with a callback:
+1. Add a simple health check route with a bug. Open `server.js` and add this code right after the `app.use(express.json());` line:
 
 ```javascript
-// Add this function to server.js
-function getUserData(userId, callback) {
-  setTimeout(() => {
-    if (!userId) {
-      callback(new Error('User ID required'), null);
-    } else {
-      callback(null, { id: userId, name: 'Test User', email: 'test@example.com' });
-    }
-  }, 100);
-}
-
-// Usage example
-getUserData(123, (err, user) => {
-  if (err) {
-    console.error('Error:', err);
-  } else {
-    console.log('User:', user);
-  }
+// Health check endpoint
+app.get('/health', (req, res) => {
+  const status = {
+    service: 'Task API',
+    status: 'healthy',
+    timestamp: new Date().toIsoString(),  // BUG: should be toISOString() not toIsoString()
+    uptime: process.uptime()
+  };
+  res.json(status);
 });
 ```
 
-![Adding code](./images/cursor35.png?raw=true "Adding code")
+![Add health check](./images/cursor44.png?raw=true "Add health check")
 
 <br><br>
 
-2. Save your changes. Select **ONLY** the `getUserData` function (not the usage example below it), press Cmd+K, and give this prompt:
+2. Save the file and start your server:
 
-```
-Convert this callback function to async/await:
-- Make it return a Promise
-- Add try-catch error handling inside the Promise
-- Add JSDoc comments
-- Keep the function standalone, don't change the usage example below
+```bash
+npm start
 ```
 
-![Convert prompt](./images/cursor36.png?raw=true "Convert prompt")
-
-
-<br><br>
-
-3. Review the generated code. Check that it has:
-   - ✅ JSDoc comments with @param and @returns
-   - ✅ `async` keyword (either `async function` or `const x = async ()`)
-   - ✅ Returns a Promise or uses await
-   - ✅ No callback parameter anymore
-   - ✅ Error handling (try-catch or reject in Promise)
-
-An example is shown below. Your code might look different as AI can refactor in different valid ways. As long as it's async/await instead of callbacks, it's correct.
-
-![Convert output](./images/cursor37.png?raw=true "Convert output")
-
-Notice the old callback-style usage example below should still be there unchanged.
+![Start server](./images/cursor43.png?raw=true "Start server")
 
 <br><br>
 
-4. Accept the changes with Cmd+Enter or the **"Keep"** button. You can ignore the "Review next file" entry if you see that. That's because we had multiple files generated from the interaction with the background agent in the previous lab.
+3. Now, you'll need another terminal to run commands in. You can open a new one by clicking on the "+" sign in the upper right of the *TERMINAL* area or clicking on the "Split Terminal" icon as shown in the screenshot.
+
+![Split terminal](./images/cursor42.png?raw=true "Split terminal")
 
 <br><br>
 
-5. Now let's refactor the usage example. Select the callback-style usage code at the bottom, press Cmd+K:
+4. Now, let's test the health check endpoint:
 
-```
-Update this to use async/await with try-catch to call the new Promise-based function
+```bash
+curl http://localhost:3000/health
 ```
 
-![Refactor usage](./images/cursor38.png?raw=true "Refactor usage")
+You'll see an error: `TypeError: (intermediate value).toIsoString is not a function`
+
+
+![Error](./images/cursor45.png?raw=true "Error")
 
 <br><br>
 
-6. Review and accept. Check that the new usage code has:
-   - ✅ `await getUserData(123)` instead of callback
-   - ✅ `try-catch` for error handling
-   - ✅ No more callback pyramid - just clean sequential code!
+5. Let's have Cursor help us debug this. Open Chat (Cmd+L), set the mode to **"Ask"** (we just want advice, not execution), and use @ symbols to provide context:
 
-The exact format might vary (wrapped in a function, top-level await, etc.) but the key is: **no more callbacks, just clean async/await**.
+```
+I'm getting this error when I call GET /health:
+"TypeError: (intermediate value).toIsoString is not a function"
 
-![Post refactor](./images/cursor39.png?raw=true "Post refactor")
+@File server.js - Look at the health check route
+
+What's wrong and how do I fix it?
+```
+
+![Error](./images/cursor46.png?raw=true "Error")
 
 <br><br>
 
-7. Compare the before and after - note how much more readable async/await is. You can then persist the changes via the **"Keep"** or keyboard shortcuts.
+6. Notice how Chat:
+   - Reads your actual code via @File
+   - Identifies the typo (toIsoString vs toISOString)
+   - Explains the problem clearly
+   - Suggests the specific fix
+  
+![Error](./images/cursor47.png?raw=true "Error")
+
+<br><br>
+7. Let's see if Cursor can fix this automatically. Use the up arrow key to select the previous chat conversation. In that window, switch the mode to **"Agent"** and submit it again.
+
+![Error](./images/cursor48.png?raw=true "Error")
+
+8. Cursor should now go through and correct the error and suggest/run tests to verify functionality.
+
+![Error](./images/cursor49.png?raw=true "Error")
+
+9. You can try other @ symbols to explore their uses (just submit these prompts in the chat):
+
+**@Files** - Reference multiple files:
+```
+How do these files work together?
+@File middleware/auth.js
+@File models/User.js
+@File server.js
+```
 
 <br><br>
 
+10. **@Folder** - Give context about a directory:
+
+```
+@Folder middleware/ - Explain what each middleware does
+```
+
+<br><br>
+
+11. **@Codebase** - Search entire project:
+    
+```
+@Codebase Where is JWT token validation handled?
+```
+
+<br><br>
+
+
+**Why This Matters:**
+
+The @ symbols are the **difference between vague AI help and precise AI help**:
+
+❌ **Without context:** "How do I fix authentication?"
+→ Generic answer, might not apply to your code
+
+✅ **With context:** "@File middleware/auth.js @File server.js - Authentication is failing for /tasks endpoint, what's wrong?"
+→ Specific answer based on YOUR actual code
 
 **Verification**
 
-You've successfully:
-- Converted a callback function to async/await
-- Added proper error handling with try-catch
-- Added JSDoc comments
-- Modernized the usage example
-- Learned how Cmd+K helps with focused refactoring
+You've successfully learned:
+- How to use @File to show AI your code
+- How to use @Selection to show errors
+- How to use @Folder for directory context
+- How to use @Codebase to search your project
+- Why context makes AI answers 10x better
 
 **Key Takeaways:**
 
-1. **Cmd+K is Perfect for Single-Function Refactoring** - Quick, focused changes to one piece of code
-2. **Async/Await is Cleaner Than Callbacks** - Easier to read and understand
-3. **AI Understands Context** - It knows how to properly convert callback patterns to Promises
-4. **Review Before Accepting** - Always check that the refactored code makes sense
+1. **@ Symbols = Better AI Answers** - Always provide context, never ask vague questions
+2. **@File for code context** - Let AI see the actual file contents
+3. **@Selection for errors** - Copy error messages into Chat with @Selection
+4. **@Codebase for searching** - Find things across your entire project
+5. **You'll Use This Daily** - Debugging is where AI saves the most time
+
+**Practice Challenge:**
+
+Break something in your code (introduce a bug), then use Chat with @ symbols to fix it. This skill will save you hours of debugging time every week.
 
 <p align="center">
 **[END OF LAB]**
 </p>
 </br></br>
 
+
+**Lab 5 - Cursor Agent CLI - Automate AI Tasks from Terminal (Optional - Requires Pro)**
+
+**⚠️ Note: This lab is OPTIONAL and requires a paid Cursor Pro subscription ($20/month).**
+
+**Purpose: Learn to use cursor-agent CLI for batch operations and automation. This is powerful for refactoring entire codebases, adding documentation, or running AI tasks in CI/CD pipelines.**
+
+**Duration:** 10 minutes
+
+**Prerequisites:**
+- ⚠️ **Cursor Pro subscription required** ($20/month) - CLI shares your IDE usage pool
+- Terminal access
+- Your my-api project from previous labs
+
+**If you don't have Pro:** You can skip this lab. Labs 1-4 cover all the free features of Cursor you need to be productive!
+
+**Setup**
+
+1. Install cursor-agent CLI (if not already installed):
+
+```bash
+curl https://cursor.com/install -fsSL | bash
+```
+
+<br><br>
+
+2. Verify installation:
+
+```bash
+cursor-agent --version
+```
+
+<br><br>
+
+**Part 1: Interactive Chat Mode**
+
+3. Navigate to your my-api project and start an interactive session:
+
+```bash
+cd my-api
+cursor-agent
+```
+
+This opens an interactive terminal chat with the AI that can see and modify your codebase.
+
+<br><br>
+
+4. Try a simple task in the interactive session:
+
+```
+Add JSDoc comments to all functions in server.js
+```
+
+<br><br>
+
+5. Review the proposed changes. The CLI will:
+   - Show you what files it wants to modify
+   - Show you the diff of changes
+   - Ask for your approval before applying
+
+Type `y` to accept or `n` to reject. Type `exit` to leave the session.
+
+<br><br>
+
+**Part 2: Non-Interactive Mode**
+
+6. Run a task directly from the command line (non-interactive):
+
+```bash
+cursor-agent chat "Find any console.log statements and replace them with proper logging using a logger"
+```
+
+This runs the task and exits. Review the changes it proposes.
+
+<br><br>
+
+**Part 3: Batch Operations**
+
+7. Try a batch operation across multiple files:
+
+```bash
+cursor-agent "Convert all var declarations to const or let across the entire project"
+```
+
+Notice how cursor-agent:
+- Scans all files in the project
+- Identifies all `var` declarations
+- Proposes changes across multiple files
+- Asks for approval before applying
+
+<br><br>
+
+**Part 4: Managing Sessions**
+
+8. List previous conversations:
+
+```bash
+cursor-agent ls
+```
+
+<br><br>
+
+9. Resume your last session:
+
+```bash
+cursor-agent resume
+```
+
+This continues where you left off, maintaining context from your previous conversation.
+
+<br><br>
+
+**Part 5: Advanced Usage**
+
+10. Run a task with automatic testing:
+
+```bash
+cursor-agent "Add input validation to all POST routes. Run npm test after applying changes."
+```
+
+The CLI can:
+- Make changes
+- Run tests automatically
+- Report results
+- All from the terminal!
+
+<br><br>
+
+**When to Use CLI vs IDE**
+
+**Use cursor-agent CLI when:**
+- ✅ Batch operations across many files
+- ✅ Automation in scripts or CI/CD
+- ✅ Quick terminal-based fixes
+- ✅ Remote server work (SSH)
+- ✅ Already in terminal workflow
+
+**Use Cursor IDE when:**
+- ✅ Active development and exploration
+- ✅ Need visual file explorer
+- ✅ Want inline diff view
+- ✅ Complex debugging
+- ✅ Multi-tab editing
+
+<br><br>
+
+**Verification**
+
+You've successfully:
+- Installed and used cursor-agent CLI
+- Run interactive and non-interactive sessions
+- Made batch changes across multiple files
+- Managed conversation history
+- Understood CLI vs IDE use cases
+
+**Key Takeaways:**
+
+1. **CLI for Automation** - cursor-agent CLI enables scripting AI tasks and CI/CD integration
+2. **Shares Your Subscription** - Uses the same Pro plan as Cursor IDE (same usage pool)
+3. **Safety First** - Always requires approval for file changes and shell commands
+4. **Batch Power** - Excellent for codebase-wide refactors (add comments, convert patterns, etc.)
+5. **Terminal Native** - Works great in SSH sessions, CI pipelines, or terminal-focused workflows
+6. **Session Management** - Resume conversations, list history, continue where you left off
+
+**Warning:** CLI is in beta. It can read, modify, and delete files. Only use in trusted environments and always review changes before accepting.
+
+<p align="center">
+**[END OF LAB]**
+</p>
+</br></br>
+
+<p align="center">
+**WORKSHOP COMPLETE! 🎉**
+</p>
+
+You've now learned:
+- ✅ Chat Mode - Planning and questions
+- ✅ Cmd+K (Edit Mode) - Focused single-file changes
+- ✅ Composer Mode - Multi-file coordination
+- ✅ .cursorrules - Project standards
+- ✅ AGENTS.md - Workflow templates
+- ✅ Background Agents - Parallel work
+- ✅ Plan Mode - Transparent execution
+- ✅ cursor-agent CLI - Terminal automation and batch operations
+- ✅ @ Symbols - Context for better AI answers
+
+**What You Can Do Now:**
+- Use Chat, Cmd+K, and Composer effectively for different tasks
+- Configure projects with .cursorrules and AGENTS.md
+- Automate batch operations with cursor-agent CLI
+- Debug errors with AI assistance using @ symbols
+- Work faster and smarter with AI assistance
+
+**Next Steps:**
+1. **Practice** - Use these techniques in your real projects
+2. **Start Small** - Begin with simple .cursorrules, add more as needed
+3. **Experiment** - Try different prompts and approaches
+4. **Share** - Teach your team what you learned
+
+**Congratulations on completing the Cursor AI Workshop!**
+
+You're now equipped to code faster and smarter with AI assistance. 🚀
