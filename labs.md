@@ -229,125 +229,35 @@ Make sure all files work together seamlessly.
 
 ```markdown
 # Project: Task Management API
-# Team: Engineering
-# Updated: October, 2025
 
-## Code Style & Standards
-
-### JavaScript/Node.js Rules
+## Code Style
 - Use ES6+ syntax (const/let, arrow functions, async/await)
-- Prefer functional programming over imperative
-- No var declarations
-- Use template literals for string interpolation
-- Always use strict equality (=== not ==)
+- Use strict equality (===)
+- Always use try-catch for async operations
+- Add JSDoc comments to exported functions
 
-### Error Handling
-- ALWAYS use try-catch for async operations
-- Return consistent error format: { success: false, message: string }
-- Log errors with context: console.error('Context:', error)
-- Never swallow errors silently
-
-### Security
-- NEVER hardcode secrets, API keys, or passwords
-- Use environment variables for sensitive config
+## Security
+- NEVER hardcode secrets - use environment variables
 - Validate ALL user inputs
-- Sanitize data before database operations
 - Use parameterized queries (prevent SQL injection)
 
-### Documentation
-- Add JSDoc comments to ALL exported functions
-- Include @param, @returns, @throws tags
-- Explain WHY not just WHAT in comments
-- Keep README.md updated with API changes
-
-### Testing
-- Write tests for ALL new features
-- Test happy path AND edge cases
-- Use descriptive test names: "should return 404 when task not found"
-- Mock external dependencies
-
-### File Organization
-- One export per file (Single Responsibility)
-- Group related functions in directories
-- Use index.js for barrel exports
-- Config files in /config directory
-- Tests next to source files: user.js → user.test.js
-
-### Naming Conventions
-- Variables/Functions: camelCase (getUserById)
+## Naming Conventions
+- Functions/Variables: camelCase (getUserById)
 - Constants: UPPER_SNAKE_CASE (MAX_RETRIES)
-- Classes: PascalCase (UserService)
 - Files: kebab-case (user-service.js)
-- Routes: kebab-case (/api/user-profiles)
 
-### API Design
-- Use RESTful conventions
-- Plural nouns for resources (/tasks not /task)
-- Use proper HTTP methods (GET, POST, PUT, DELETE)
-- Return appropriate status codes
-- Include "success" flag in all responses
+## Error Handling
+- Return consistent format: { success: false, message: string }
+- Never swallow errors silently
 
-### Performance
-- Use async/await consistently
-- Avoid n+1 queries
-- Implement pagination for list endpoints
-- Cache frequently accessed data
-- Use connection pooling for databases
+## Testing
+- Write tests for new features
+- Use descriptive names: "should return 404 when task not found"
 
-### Git Commits
-- Use conventional commits: feat: add user authentication
-- Types: feat, fix, docs, test, refactor, chore
-- Keep commits atomic (one concern per commit)
-
-## AI Behavior Guidelines
-
-### When Generating Code
-- Always include error handling
-- Add input validation
-- Include JSDoc comments
-- Suggest tests for new functions
-- Consider edge cases
-
-### When Refactoring
-- Preserve existing functionality
-- Add tests to verify behavior
-- Explain changes in comments
-- Update related documentation
-
-### When Debugging
-- Explain the root cause
-- Suggest fixes with trade-offs
-- Consider performance impact
-- Recommend preventive measures
-
-## Context Awareness
-
-### This Project Uses
+## This Project Uses
 - Express.js for REST API
 - JWT for authentication
-- bcrypt for password hashing
-- In-memory storage (replace with DB later)
 - Jest for testing
-
-### Common Patterns
-- Middleware for auth: authenticate, authorize
-- Consistent error responses
-- async/await for all I/O
-- Centralized error handling
-
-## Response Format Preferences
-
-### Code
-- Include imports at top
-- Add comments for complex logic
-- Show usage examples
-- Suggest improvements
-
-### Explanations
-- Start with high-level overview
-- Then dive into details
-- Include pros/cons for decisions
-- Link to docs when relevant
 ```
 
 ![Completing cursorrules file](./images/cursor24.png?raw=true "Completing cursorrules file")
@@ -362,9 +272,8 @@ Make sure all files work together seamlessly.
 
 <br><br>
 
-**Part 2: Create AGENTS.md**
 
-5. `AGENTS.md` guides autonomous AI Agents through complex, multi-step tasks. Create the file in the same way as you did for the .cursorrules one.
+5. Now let's create an `AGENTS.md` file. `AGENTS.md` guides autonomous AI Agents through complex, multi-step tasks. Create the file in the same way as you did for the .cursorrules one.
 
 
 ![Creating AGENTS.md file](./images/cursor26.png?raw=true "Creating AGENTS.md file")
@@ -376,195 +285,86 @@ Make sure all files work together seamlessly.
 ```markdown
 # AI Agent Guidelines
 
-## Agent Capabilities
-
-Our AI agents can:
-- Read and understand the entire codebase
+## What AI Agents Can Do
 - Create and modify multiple files
 - Run tests and check results
 - Install dependencies
-- Execute git commands
-- Make architectural decisions
 
 ## Project Structure
 
-```
 /
 ├── server.js           # Main entry point
-├── middleware/         # Express middleware
-│   └── auth.js
-├── models/            # Data models
-│   ├── User.js
-│   └── Task.js
-├── routes/            # Route handlers (to be created)
-├── config/            # Configuration files
-├── tests/             # Test files
-├── .cursorrules       # Project rules
-└── AGENTS.md          # This file
-```
+├── middleware/         # Auth, validation
+├── models/             # Data models
+├── routes/             # API routes
+├── config/             # Configuration
+├── tests/              # Test files
+└── .cursorrules        # Project rules
 
-## Common Agent Tasks
+## How to Add a New Feature
 
-### Task 1: Add New API Endpoint
+When asked to add a feature (like a new API endpoint):
 
-When asked to add a new endpoint:
-
-1. **Plan Phase**
-   - Determine HTTP method and route
-   - Design request/response format
+1. **Plan**
+   - Determine what files are needed
    - Identify required middleware
    - Consider edge cases
 
-2. **Implementation Phase**
-   - Create route file in /routes if needed
+2. **Implement**
+   - Create route file in /routes
    - Add validation middleware
-   - Implement handler with error handling
-   - Update server.js to use route
+   - Handle errors with try-catch
+   - Update server.js
 
-3. **Testing Phase**
+3. **Test**
    - Create test file
-   - Test happy path
-   - Test error cases
-   - Test authentication/authorization
+   - Test success and error cases
 
-4. **Documentation Phase**
+4. **Document**
    - Add JSDoc comments
-   - Update API documentation
-   - Add example request/response
+   - Update README if needed
 
-### Task 2: Add Database Integration
-
-When adding database support:
-
-1. Research best practices for the chosen DB
-2. Create /config/database.js with connection logic
-3. Update models to use real DB operations
-4. Add migration files if needed
-5. Update .env.example with DB variables
-6. Add error handling for connection issues
-7. Test all CRUD operations
-
-### Task 3: Security Audit
-
-When asked to review security:
-
-1. Check for hardcoded secrets
-2. Verify input validation on all routes
-3. Test authentication/authorization
-4. Look for SQL injection vulnerabilities
-5. Check rate limiting implementation
-6. Verify HTTPS usage
-7. Test password hashing
-8. Generate security report
-
-### Task 4: Add Feature with Tests
-
-When adding a complete feature:
-
-1. **Planning**
-   - Break down into subtasks
-   - Identify affected files
-   - Determine test strategy
-
-2. **Implementation**
-   - Create necessary files
-   - Implement core logic
-   - Add middleware if needed
-   - Update routes
-
-3. **Testing**
-   - Unit tests for models
-   - Integration tests for routes
-   - Test edge cases
-
-4. **Documentation**
-   - Update README.md
-   - Add inline comments
-   - Create usage examples
-
-## Agent Constraints
+## Rules for Agents
 
 ### DO
 ✅ Follow .cursorrules automatically
-✅ Ask for clarification if requirements unclear
-✅ Provide progress updates for long tasks
+✅ Ask if requirements are unclear
 ✅ Test code after generating it
-✅ Suggest improvements proactively
-✅ Explain your decisions
-✅ Use Plan Mode for complex tasks
+✅ Use Plan Mode for multi-file changes
 
 ### DON'T
 ❌ Make breaking changes without warning
-❌ Delete existing functionality
-❌ Commit code without testing
-❌ Ignore edge cases
 ❌ Skip error handling
-❌ Hardcode sensitive data
-❌ Create files outside project structure
+❌ Hardcode secrets
+❌ Delete existing functionality
 
-## Plan Mode Usage
+## Using Plan Mode
 
-### When to Use Plan Mode
+Plan Mode is great for complex tasks:
+1. You describe what you want
+2. Agent creates a detailed plan
+3. You review and approve it
+4. Agent executes the plan
 
-Use Plan Mode for:
-- Multi-step refactorings
-- Adding complete features
-- Architectural changes
-- Database migrations
-- Security improvements
+**Example:**
+"Add JWT authentication to the API"
 
-### How Plan Mode Works
+The agent will plan to:
+- Install dependencies
+- Create auth middleware
+- Add login/register routes
+- Protect existing routes
+- Add tests
 
-1. Agent creates detailed, editable plan
-2. You review and modify the plan
-3. Agent executes approved plan
-4. You review results at each step
+## Tips for Better Results
 
-### Example: Add Authentication
-
-```
-Plan Mode Request: "Add JWT authentication to the API"
-
-Generated Plan:
-1. Install dependencies (jsonwebtoken, bcryptjs)
-2. Create middleware/auth.js with JWT verification
-3. Create models/User.js with password hashing
-4. Add /auth/register and /auth/login routes
-5. Protect existing routes with auth middleware
-6. Add tests for authentication
-7. Update documentation
-
-[Approve] [Edit Plan] [Cancel]
-```
-
-## Agent Performance Tips
-
-### Make Tasks Easier for Agents
-
-✅ **Good Request**: "Add user search endpoint with pagination, filtering by role, and sorting by created date. Use /users/search route. Return max 50 results per page."
+✅ **Good Request**: "Add user search endpoint with pagination. Return max 50 results per page."
 
 ❌ **Vague Request**: "Add search feature"
 
-### Provide Context
-
-Use @ symbols:
-- `@Files` - Point to relevant files
+Use @ symbols to provide context:
+- `@Files` - Reference specific files
 - `@Folder` - Include directory context
-- `@Code` - Reference specific functions
-- `@Docs` - Link to documentation
-
-## Success Metrics
-
-Agent-generated code should:
-- ✅ Pass all tests
-- ✅ Follow .cursorrules
-- ✅ Include documentation
-- ✅ Handle edge cases
-- ✅ Be production-ready
-
----
-
-_This AGENTS.md is a living document. Update it as the project evolves._
 ```
 
 <br><br>
