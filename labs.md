@@ -209,26 +209,28 @@ Make sure all files work together seamlessly.
 </p>
 </br></br>
 
-**Lab 2 - Project Rules & AI Agents - Build Consistent, Automated Workflows**
+**Lab 3 - Project Rules & AI Agents - Build Consistent, Automated Workflows**
 
 **Purpose: In this lab, we'll master .cursorrules for project standards and AGENTS.md for autonomous AI workflows. You will create .cursorrules to enforce team coding standards, write AGENTS.md to guide AI Agent behavior, and use Agent Mode with Plan Mode for complex tasks.**
 
-**Part 1: Create .cursorrules**
 
-1. `.cursorrules` teaches Cursor your project's standards. Every AI suggestion follows these rules automatically. Create the file in your project root:
+1. `.cursorrules` teaches Cursor your project's standards. Every AI suggestion follows these rules automatically. In the file explorer on the left, select one of the files in the root of the **"my-api"** directory, such as **"package.json"** or **"server.js"**. Then click on the **"New File..."** icon (see screenshot) or you can use the menu at **"File->New Text File"** entry.
 
-```
-touch .cursorrules
-```
+![Creating cursorrules file](./images/cursor21.png?raw=true "Creating cursorrules file")
 
 <br><br>
 
-2. Copy this into `.cursorrules`:
+2. Type in the name in the explorer for the new file **".cursorrules"** and hit Enter. This should then open it up as a new empty file in the editor.
+
+
+![Starting cursorrules file](./images/cursor23.png?raw=true "Starting cursorrules file")
+
+3. Copy and paste the text below into the file. Then save it.
 
 ```markdown
 # Project: Task Management API
 # Team: Engineering
-# Updated: 2024
+# Updated: October, 2025
 
 ## Code Style & Standards
 
@@ -348,9 +350,13 @@ touch .cursorrules
 - Link to docs when relevant
 ```
 
+![Completing cursorrules file](./images/cursor24.png?raw=true "Completing cursorrules file")
+
 <br><br>
 
-3. Test your rules by opening Chat (Cmd+L) and asking: "Create a function to delete a user". Notice how Cursor automatically follows your rules by using async/await, including try-catch, adding JSDoc comments, having proper error handling, and using your naming conventions.
+4. Test your rules by opening Chat (Cmd+L), set it to **"Ask"** mode and ask: "Create a function to delete a user". Notice how Cursor automatically follows your rules by using async/await, including try-catch, adding JSDoc comments, having proper error handling, and using your naming conventions.
+
+![Testing rules](./images/cursor25.png?raw=true "Testing rules")
 
 **📝 Key Learning:** .cursorrules affects ALL AI interactions - Chat, Cmd+K, and Composer automatically follow these rules.
 
@@ -358,15 +364,14 @@ touch .cursorrules
 
 **Part 2: Create AGENTS.md**
 
-4. `AGENTS.md` guides autonomous AI Agents through complex, multi-step tasks. Create the file:
+5. `AGENTS.md` guides autonomous AI Agents through complex, multi-step tasks. Create the file in the same way as you did for the .cursorrules one.
 
-```
-touch AGENTS.md
-```
+
+![Creating AGENTS.md file](./images/cursor26.png?raw=true "Creating AGENTS.md file")
 
 <br><br>
 
-5. Add the following content to define agent workflows:
+6. Add the following content to define agent workflows:
 
 ```markdown
 # AI Agent Guidelines
