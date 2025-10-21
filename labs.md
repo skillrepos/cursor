@@ -23,7 +23,7 @@
 
 <br><br>
 
-3. First, let's enable Tab autocomplete if it's not already on. Go to Cursor Settings (Cmd+, or Ctrl+,), search for "Cursor Tab", and make sure it's enabled under Features > Cursor Tab. Also make sure that "Partial Accepts" is enabled.
+3. First, let's enable Tab autocomplete if it's not already on. Go to Cursor Settings (via menu or gear icon in upper right), search for "Cursor Tab", and make sure it's enabled under Features > Cursor Tab. Also make sure that "Partial Accepts" is enabled.
 
 ![Enable Tab](./images/cursor56.png?raw=true "Enable Tab")
 
@@ -36,9 +36,9 @@
 function validateTask
 ```
 
-As you type, you should see **gray ghost text** appear - this is Cursor suggesting the rest of the code. Press **Tab** to accept the suggestion.
+As you type, you should see **gray ghost text** appear - this is Cursor suggesting the rest of the code. Press *Tab* to accept the suggestion. If you don't see the complete suggestion, hit *Tab* or *Enter* and then wait for Cursor to suggest more code.
 
-![Auto1](./images/cursor52.png?raw=true "Auto1")
+![Auto1](./images/cursor58.png?raw=true "Auto1")
 
 <br><br>
 
