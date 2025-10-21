@@ -1,23 +1,22 @@
 # Cursor AI for Developers
 ## Hands-on AI-Assisted Coding
 ## Session Labs
-## Revision 1.2 - 10/20/25
+## Revision 1.3 - 10/21/25
 
 **Follow the startup instructions in the README.md file IF NOT ALREADY DONE!**
 
 ---
 
-**Lab 1 - Understanding Cursor's Modes - Build a REST API**
+**Lab 1 - Understanding Cursor's Autocomplete Functionality**
 
 **Purpose: In this lab, we'll see how to use Cursor's autocomplete for code suggestions.**
 
 **Setup**
 
-1. From the workshop root directory, execute the commands below and navigate to the API directory. 
+1. From the workshop root directory, navigate to the API directory. 
+
 ```
-cd cursor
-cp -r labs/cursor-modes/starter my-api
-cd my-api
+cd cursor/my-api
 ```
 
 <br><br>
