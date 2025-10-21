@@ -109,7 +109,7 @@ What middleware should I include?
 
 <br><br>
 
-4. Now, let's look at some single file editing via inline Chat.  Open `server.js` in Cursor. You should see the basic Express server with a TODO comment. Place cursor after `app.use(express.json());` and press `Cmd+K` (or `Ctrl+K`). Type or copy/paste this specific instruction:
+4. Now, let's look at some single file editing via inline Chat.  If not already open, open `server.js` in Cursor. You should see the basic Express server with a TODO comment. Place cursor after `app.use(express.json());` and press `Cmd+K` (or `Ctrl+K`). Type or copy/paste this specific instruction:
 
 ```
 Add all 5 CRUD routes for tasks with:
@@ -142,7 +142,11 @@ Return proper JSON error responses with status codes
 
 ![Add error handling](./images/cursor10.png?raw=true "Add error handling")
 
+<br><br>
+
 7. Review and accept the changes as before with either *Accept* at the top or *Keep* for each independent change.
+
+![Add error handling](./images/cursor59.png?raw=true "Add error handling")
 
 <br><br>
 
@@ -158,8 +162,9 @@ Return 400 with validation errors if invalid
 
 Accept the changes as before.
 
-![Keep](./images/cursor11.png?raw=true "Keep")
+![Prompt](./images/cursor11.png?raw=true "Prompt ")
 
+![Keep](./images/cursor60.png?raw=true "Keep")
 
 <p align="center">
 **[END OF LAB]**
