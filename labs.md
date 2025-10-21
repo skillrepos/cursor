@@ -79,7 +79,7 @@ Cursor should suggest the remaining parameters like `req, res` or similar. Press
 
 **Purpose: In this lab, we'll learn when to use Chat and Edit (Cmd+K) modes by building a real Express API. You will use Chat mode for planning and questions and Edit mode for focused single-file changes, and Composer mode for multi-file coordination.**
 
-1. Let's see how we can use Chat Mode to plan and understand changes. Open Chat by pressing Cmd+L (Mac) or Ctrl+L (Windows). Make sure the mode dropdown is set to **"Ask"**.
+1. Let's see how we can use Chat Mode to plan and understand changes. If not open, open Chat by pressing Cmd+L (Mac) or Ctrl+L (Windows). Make sure the mode dropdown is set to **"Ask"**.
 
 ![Ask mode](./images/cursor4.png?raw=true "Ask mode")
 
