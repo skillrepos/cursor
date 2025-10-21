@@ -680,6 +680,8 @@ How do these files work together?
 @File server.js
 ```
 
+![How files work together](./images/cursor71.png?raw=true "How files work together")
+
 <br><br>
 
 10. **@Folder** - Give context about a directory:
@@ -687,6 +689,10 @@ How do these files work together?
 ```
 @Folder middleware/ - Explain what each middleware does
 ```
+
+
+![What middleware does](./images/cursor72.png?raw=true "What middleware does")
+
 
 <br><br>
 
@@ -696,39 +702,11 @@ How do these files work together?
 @Codebase Where is JWT token validation handled?
 ```
 
+![Where is JWT token validation handled](./images/cursor73.png?raw=true "Where is JWT token validation handled")
+
 <br><br>
 
 
-**Why This Matters:**
-
-The @ symbols are the **difference between vague AI help and precise AI help**:
-
-❌ **Without context:** "How do I fix authentication?"
-→ Generic answer, might not apply to your code
-
-✅ **With context:** "@File middleware/auth.js @File server.js - Authentication is failing for /tasks endpoint, what's wrong?"
-→ Specific answer based on YOUR actual code
-
-**Verification**
-
-You've successfully learned:
-- How to use @File to show AI your code
-- How to use @Selection to show errors
-- How to use @Folder for directory context
-- How to use @Codebase to search your project
-- Why context makes AI answers 10x better
-
-**Key Takeaways:**
-
-1. **@ Symbols = Better AI Answers** - Always provide context, never ask vague questions
-2. **@File for code context** - Let AI see the actual file contents
-3. **@Selection for errors** - Copy error messages into Chat with @Selection
-4. **@Codebase for searching** - Find things across your entire project
-5. **You'll Use This Daily** - Debugging is where AI saves the most time
-
-**Practice Challenge:**
-
-Break something in your code (introduce a bug), then use Chat with @ symbols to fix it. This skill will save you hours of debugging time every week.
 
 <p align="center">
 **[END OF LAB]**
