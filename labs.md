@@ -162,7 +162,7 @@ Return 400 with validation errors if invalid
 
 Accept the changes as before.
 
-![Prompt](./images/cursor11.png?raw=true "Prompt ")
+![Prompt](./images/cursor62.png?raw=true "Prompt ")
 
 ![Keep](./images/cursor60.png?raw=true "Keep")
 
@@ -171,11 +171,11 @@ Accept the changes as before.
 </p>
 </br></br>
 
-**Lab 3 - Multi-File Coordination with Composer**
+**Lab 3 - Multi-File Coordination with Chat**
 
-**Purpose: In this lab, we'll utilize Composer mode for multi-file coordination. We'll continue working with the same Express app that we used in Lab 1.AI workflows.**
+**Purpose: In this lab, we'll utilize Chat mode for multi-file coordination. We'll continue working with the same Express app that we used in Lab 1.AI workflows.**
 
-1. Working in the same project as in Lab 1, open Composer by pressing Cmd+I (Mac) or Ctrl+I (Windows), or click the Composer icon in the sidebar.
+1. If not already open, open the main Chat panel via Cmd+L.
 
 <br><br>
 
@@ -187,7 +187,7 @@ Accept the changes as before.
 
 <br><br>
 
-3. Type this in Composer to request a multi-file authentication feature:
+3. Type this in the Chat panel to request a multi-file authentication feature:
 
 ```
 Create a complete authentication system for the API:
@@ -223,13 +223,17 @@ Make sure all files work together seamlessly.
 
 ![Plan mode questions](./images/cursor14.png?raw=true "Plan mode questions")
 
-6. To answer these, you can just indicate in the chat the question number and the response. There are multiple ways to do this, but one way is with this kind of response. Go ahead and enter this text and hit Enter.
+<br><br>
+
+6. To answer these, you can just indicate in the chat the question number and the response (like the example below). There are multiple ways to do this, but one way is with this kind of response. The default answers are usually the first one (a) for each question. You can just tell it to "Use default answers" (in the Chat dialog) or you can respond with a chosen answer for each using the format below. 
 
 ```
 1-a, 2-a, 3-a
 ```
 
 ![Plan mode responses](./images/cursor15.png?raw=true "Plan mode responses")
+
+<br><br>
 
 7. After it gets the answers to the questions, Cursor will provide a detailed plan with a set of "todos". It will probably open up a file with the detailed plan automatically, but if not, you can click on the "Read detailed plan" link to open it up.
 
@@ -254,10 +258,6 @@ Make sure all files work together seamlessly.
 
 <br><br>
 
-**📝 Key Learning:** Use Composer when changes span multiple files and need coordination. It understands the relationships between files.
-
-<br><br>
-
 <p align="center">
 **[END OF LAB]**
 </p>
@@ -265,7 +265,7 @@ Make sure all files work together seamlessly.
 
 **Lab 4 - Project Rules & AI Agents - Build Consistent, Automated Workflows**
 
-**Purpose: In this lab, we'll master .cursorrules for project standards and AGENTS.md for autonomous AI workflows. You will create .cursorrules to enforce team coding standards, write AGENTS.md to guide AI Agent behavior, and use Agent Mode with Plan Mode for complex tasks.**
+**Purpose: In this lab, we'll focus on .cursorrules for project standards and AGENTS.md for autonomous AI workflows. You will create .cursorrules to enforce team coding standards, write AGENTS.md to guide AI Agent behavior, and use Agent Mode with Plan Mode for complex tasks.**
 
 
 1. `.cursorrules` teaches Cursor your project's standards. Every AI suggestion follows these rules automatically. In the file explorer on the left, select one of the files in the root of the **"my-api"** directory, such as **"package.json"** or **"server.js"**. Then click on the **"New File..."** icon (see screenshot) or you can use the menu at **"File->New Text File"** entry.
@@ -318,11 +318,11 @@ Make sure all files work together seamlessly.
 
 <br><br>
 
-4. Test your rules by opening Chat (Cmd+L), set it to **"Ask"** mode and ask: "Create a function to delete a user". Notice how Cursor automatically follows your rules by using async/await, including try-catch, adding JSDoc comments, having proper error handling, and using your naming conventions.
+4. Test your rules by opening a new Chat ("+" in upper right of Chat panel), set it to **"Ask"** mode and ask: "Create a function to delete a user". Notice how Cursor automatically follows your rules by using async/await, including try-catch, adding JSDoc comments, having proper error handling, and using your naming conventions.
 
 ![Testing rules](./images/cursor25.png?raw=true "Testing rules")
 
-**📝 Key Learning:** .cursorrules affects ALL AI interactions - Chat, Cmd+K, and Composer automatically follow these rules.
+
 
 <br><br>
 
@@ -425,23 +425,21 @@ Use @ symbols to provide context:
 
 <br><br>
 
-6. Open a new chat via the "+" sign in the upper right of the chat panel. Now, test Agent Mode with Plan Mode by opening Composer (Cmd+I), switching to **"Plan"** Mode (via the dropdown), and requesting a complex task:
+6. Open a new chat via the "+" sign in the upper right of the chat panel. Now, test Agent Mode with Plan Mode by opening Composer (Cmd+I), switching to **"Plan"** Mode (via the dropdown), and requesting a complex task. After entering the prompt, go ahead and hit Enter/Submit:
 
 ```
 Add a new feature: GET /tasks/:id/comments endpoint
 
-This should follow the workflow in AGENTS.md:
+Follow the workflow in AGENTS.md:
 1. Plan what files are needed
 2. Create route in routes/comments.js
 3. Add validation middleware
 4. Handle errors
 5. Update server.js
 6. Create basic test
-
-Use Plan Mode to show me the steps first.
 ```
 
-![Prompting for complex task](./images/cursor30.png?raw=true "Prompting for complex task")
+![Prompting for complex task](./images/cursor63.png?raw=true "Prompting for complex task")
 
 <br><br>
 
@@ -464,7 +462,6 @@ Use Plan Mode to show me the steps first.
 
 ![Building for complex task](./images/cursor32.png?raw=true "Building for complex task")
     
-**📝 Key Learning:** AGENTS.md guides the AI's decision-making process for autonomous, multi-step tasks.
 
 <br><br>
 
@@ -472,50 +469,8 @@ Use Plan Mode to show me the steps first.
 
 ![Proceed for complex task](./images/cursor33.png?raw=true "Proceed for complex task")
 
-**Part 3: Configure Background Agents**
-
-11. Background Agents work independently while you continue coding. Open a new chat tab, make sure you are set to use "Agent Mode" and then add this in the chat:
-
-```
-Background Agent Task: Add comprehensive testing
-
-Please:
-1. Create tests for all existing routes
-2. Add integration tests
-3. Set up test database
-4. Configure Jest properly
-5. Add coverage reports
-6. Update package.json scripts
-
-Run this as a background agent so I can keep working.
-```
-
-![Setting up background agent task](./images/cursor34.png?raw=true "Setting up background agent task")
-
 <br><br>
 
-12. The agent runs in background while you can code in other files. Check progress in Agent panel and review when complete.
-
-**📝 Key Learning:** Background Agents enable multitasking - AI works on one feature while you work on another.
-
-<br><br>
-
-**Verification**
-
-After completing this lab, you should have:
-- Created .cursorrules with project standards
-- Tested that AI follows your rules
-- Created AGENTS.md with workflows
-- Used Plan Mode for complex task
-- Started a Background Agent
-- Understanding of when to use each feature
-
-**Key Takeaways:**
-
-1. **`.cursorrules` = Team Standards** - Every AI interaction follows these rules, ensures consistent code across team, reduces review time
-2. **`AGENTS.md` = AI Workflows** - Guides autonomous AI agents, defines complex multi-step tasks, ensures quality and completeness
-3. **Plan Mode = Transparency** - See AI's plan before execution, edit and refine the approach, better results for complex tasks
-4. **Background Agents = Productivity** - AI works while you work, parallel development, faster overall delivery
 
 <p align="center">
 **[END OF LAB]**
@@ -555,21 +510,28 @@ After completing this lab, you should have:
    - Using helmet for security headers
    - Better logging practices
 
+
+![Review results](./images/cursor64.png?raw=true "Review results")
+
 <br><br>
 
-3. Now ask for specific review on a function. Select the `validateTask` function (click and drag to highlight it), then press Cmd+L and type:
+3. Now ask for specific review on a function. Select the `validateTask` or `validateTaskInput function (click and drag to highlight it), then press Cmd+L and type:
 
 ```
 @Selection - Review this validation function. What could be improved?
 ```
 
-Notice how Cursor gives more focused feedback when you use @Selection on specific code.
+![Review request](./images/cursor65.png?raw=true "Review request")
+
+4. After you submit the prompt, notice how Cursor gives more focused feedback when you use @Selection on specific code.
+
+
+![Review results](./images/cursor66.png?raw=true "Review results")
 
 <br><br>
 
-**Part 2: Git Operations (4 min)**
 
-4. Let's commit your changes. Open Chat (Cmd+L), set mode to **"Agent"** (we want Cursor to execute git commands), and type:
+5. Let's commit your changes. Open a new Chat, set mode to **"Agent"** (we want Cursor to execute git commands), and type:
 
 ```
 Check git status and create a commit with all my changes. Write a good commit message that describes what was built in these labs.
@@ -582,9 +544,11 @@ Check git status and create a commit with all my changes. Write a good commit me
    - Stage files with `git add`
    - Generate a descriptive commit message
    - Show you the commit message before committing
-   - Ask for your approval
+   - Ask for your approval (unless you've previously told it to just run everything)
 
 Review the commit message and approve if it looks good.
+
+![Review results](./images/cursor67.png?raw=true "Review results")
 
 <br><br>
 
@@ -596,6 +560,9 @@ Create a new git branch called "experiment/refactoring" and switch to it
 
 Cursor will run `git checkout -b experiment/refactoring` for you.
 
+
+![Create branch](./images/cursor68.png?raw=true "Create branch")
+
 <br><br>
 
 7. Try asking Cursor to help with other git operations:
@@ -604,36 +571,10 @@ Cursor will run `git checkout -b experiment/refactoring` for you.
 Show me the git log for the last 3 commits in a readable format
 ```
 
-or
+![Last 3 commits](./images/cursor69.png?raw=true "Last 3 commits")
 
-```
-What files have I changed since the last commit?
-```
-
-**📝 Key Learning:** Cursor can execute git commands for you in Agent mode, write commit messages, create branches, and explain git concepts.
 
 <br><br>
-
-**Verification**
-
-You've successfully learned:
-- How to ask Cursor to review entire files with @File
-- How to review specific functions with @Selection
-- How to use Agent mode for git operations
-- How to let Cursor write commit messages
-- How to create branches with AI help
-
-**Key Takeaways:**
-
-1. **Code Review = Find Issues Early** - Use @File or @Selection to get AI feedback before committing
-2. **Agent Mode for Git** - Let Cursor execute git commands when in Agent mode
-3. **Better Commit Messages** - AI writes descriptive commits based on actual changes
-4. **Learn Git** - Ask Cursor to explain any git command you don't understand
-5. **Safe Automation** - Cursor always shows you what it will do before executing
-
-**Practice Challenge:**
-
-Try reviewing the middleware/auth.js file and ask Cursor for security improvements. Then commit any changes you make with AI-generated commit messages.
 
 <p align="center">
 **[END OF LAB]**
