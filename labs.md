@@ -13,13 +13,7 @@
 
 **Setup**
 
-1. From the workshop root directory, navigate to the API directory. 
-
-```
-cd cursor/my-api
-```
-
-<br><br>
+1. Make sure you have cloned the repository [https://github.com/skillrepos/cursor](github.com/skillrepos/cursor)
 
 2. Open the *my-api* folder in Cursor using one of the available methods (drag folder onto Cursor icon, use File → Open Folder in Cursor, or use the CLI command). Verify that you see the following files:
    - `server.js` - Basic Express server with TODO
