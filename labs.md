@@ -1,7 +1,7 @@
 # Cursor AI for Developers
 ## Hands-on AI-Assisted Coding
 ## Session Labs
-## Revision 1.3 - 10/21/25
+## Revision 1.4 - 10/22/25
 
 **Follow the startup instructions in the README.md file IF NOT ALREADY DONE!**
 
@@ -173,7 +173,7 @@ Accept the changes as before.
 
 **Lab 3 - Multi-File Coordination with Chat**
 
-**Purpose: In this lab, we'll utilize Chat mode for multi-file coordination. We'll continue working with the same Express app that we used in Lab 1.AI workflows.**
+**Purpose: In this lab, we'll utilize Chat mode for multi-file coordination.**
 
 1. If not already open, open the main Chat panel via Cmd+L.
 
