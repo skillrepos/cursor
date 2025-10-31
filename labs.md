@@ -1,61 +1,77 @@
 # Cursor AI for Developers
 ## Hands-on AI-Assisted Coding
 ## Session Labs
-## Revision 1.4 - 10/22/25
+## Revision 2.0 - 10/31/25
 
 **Follow the startup instructions in the README.md file IF NOT ALREADY DONE!**
 
+**Make sure you have the following ready to go.**
+- A local instance of Cursor 2.0 installed
+- A GitHub userid on the public GitHub.com
+- A local installation of Git
+
 ---
 
-**Lab 1 - Understanding Cursor's Autocomplete Functionality**
+**Lab 1 - Smart Autocomplete & Inline Editing**
 
-**Purpose: In this lab, we'll see how to use Cursor's autocomplete for code suggestions.**
+**Purpose: Explore Cursor 2.0's real-time autocomplete and inline editing.**
 
-**Setup**
 
-1. Make sure you have cloned the repository [https://github.com/skillrepos/cursor](github.com/skillrepos/cursor)
+1. Start the Cursor app and select *Clone repo* on the main screen.
 
-2. Open the *my-api* folder in Cursor using one of the available methods (drag folder onto Cursor icon, use File → Open Folder in Cursor, or use the CLI command). Verify that you see the following files:
+![clone in Cursor](./images/cursor81.png?raw=true "Clone in Cursor")
+
+<br><br>
+
+2. In the dialog that comes up, enter the repository path and hit *Enter*. Then select the destination folder and click "Open" to open the cloned repository.
+
+```
+https://github.com/skillrepos/cursor
+```
+
+<br><br>
+
+3. Note that you should be on the *Editor* tab in the top left, not *Agents*. Expand the *my-api* folder in Cursor. Verify that you see the following files:
    - `server.js` - Basic Express server with TODO
    - `package.json` - Dependencies (express, jsonwebtoken, bcrypt)
 
-![open in Cursor](./images/cursor3.png?raw=true "Open in Cursor")
+![open in Cursor](./images/cursor84.png?raw=true "Open in Cursor")
 
 <br><br>
 
-3. First, let's enable Tab autocomplete if it's not already on. Go to Cursor Settings (via menu or gear icon in upper right), search for "Cursor Tab", and make sure it's enabled under Features > Cursor Tab. Also make sure that "Partial Accepts" is enabled.
+4. First, let's enable Tab autocomplete if it's not already on. Go to Cursor Settings (via menu or gear icon in upper right), search for "Cursor Tab", and make sure it's enabled under Features > Cursor Tab. Also make sure that "Partial Accepts" is enabled. You can click on the "X" at the top afterwards to close that tab.
 
-![Enable Tab](./images/cursor56.png?raw=true "Enable Tab")
+![Enable Tab](./images/cursor85.png?raw=true "Enable Tab")
 
 <br><br>
 
-4. Open `server.js`. Start typing a new function below the existing code:
+5. Open `server.js`. Start typing a new function below the existing code:
 
 ```javascript
 // Start typing this:
 function validateTask
 ```
 
-As you type, you should see **gray ghost text** appear - this is Cursor suggesting the rest of the code. Press *Tab* to accept the suggestion. If you don't see the complete suggestion, hit *Tab* or *Enter* and then wait for Cursor to suggest more code.
+As you type, you should see **gray ghost text** appear - this is Cursor suggesting the rest of the code. Press *Tab* to accept the suggestion. If you don't see the complete suggestion, hit *Tab* or *Enter* and then wait for Cursor to suggest more code. As Cursor suggests the remainder of the code, you can just use *Tab* to accept it until the function is complete.
 
 ![Auto1](./images/cursor58.png?raw=true "Auto1")
 
 <br><br>
 
-5. Try another example. Start typing a comment:
+6. Try another example. Start typing a comment:
 
 ```javascript
 // Function to get all tasks from
 ```
 
-Notice how Cursor predicts you might write "database" or "storage" and suggests completing your comment. Instead of using **Tab** to accept the full change, use the **Cmd/Ctrl + right arrow** to accept one word at a time.
+Notice how Cursor predicts you might write "database" or "storage" and suggests completing your comment. Instead of using **Tab** to accept the full change, use the **Cmd/Ctrl + right arrow** to accept one word at a time. When you get enough, hit *Esc* to reject the changes. 
 
 
 ![Auto2](./images/cursor53.png?raw=true "Auto2")
 
 <br><br>
 
-6. Now try writing a function signature:
+7. Now try writing a function signature:
 
 ```javascript
 async function createTask(req
@@ -68,7 +84,10 @@ Cursor should suggest the remaining parameters like `req, res` or similar. Press
 
 <br><br>
 
-7. To avoid any issues down the line, you can just highlight and delete the code that's been accepted.
+8. To avoid any issues down the line, let's revert the file back to its original version. To do this, with the file active in the editor, click on the the *File* menu and then select *Revert File*. (If you don't see that entry, you can always just highlight and delete the text instead.)
+
+![Revert file](./images/cursor86.png?raw=true "Revert file")
+
 
 <p align="center">
 **[END OF LAB]**
