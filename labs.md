@@ -29,6 +29,10 @@
 https://github.com/skillrepos/cursor
 ```
 
+![Enter path](./images/cursor82.png?raw=true "Enter path")
+
+![Open clone](./images/cursor83.png?raw=true "Open clone")
+
 <br><br>
 
 3. Note that you should be on the *Editor* tab in the top left, not *Agents*. Expand the *my-api* folder in Cursor. Verify that you see the following files:
