@@ -386,103 +386,44 @@ Make sure all files work together seamlessly.
 ```markdown
 # AI Agent Guidelines
 
-## What AI Agents Can Do
-- Create and modify multiple files
-- Run tests and check results
-- Install dependencies
+This file guides AI agents working on the Task Management API project.
+All code must follow the conventions defined in .cursorrules.
 
-## Project Structure
+## File Organization
 
-/
-├── server.js           # Main entry point
-├── middleware/         # Auth, validation
-├── models/             # Data models
-├── routes/             # API routes
-├── config/             # Configuration
-├── tests/              # Test files
-└── .cursorrules        # Project rules
+When creating new files, use these locations:
 
-## How to Add a New Feature
+- **Routes**: `/routes` directory (e.g., `routes/tasks.js`, `routes/comments.js`)
+- **Middleware**: `/middleware` directory (e.g., `middleware/auth.js`, `middleware/validation.js`)
+- **Models**: `/models` directory (e.g., `models/User.js`, `models/Task.js`)
+- **Configuration**: `/config` directory
+- **Tests**: `/tests` directory, mirroring the structure being tested
+- **Main server**: `server.js` is the entry point - import and mount new routes here
 
-When asked to add a feature (like a new API endpoint):
+## Workflow for Adding Features
 
-1. **Plan**
-   - Determine what files are needed
-   - Identify required middleware
-   - Consider edge cases
+When implementing a new feature (API endpoint, authentication, etc.):
 
-2. **Implement**
-   - Create route file in /routes
-   - Add validation middleware
-   - Handle errors with try-catch
-   - Update server.js
+1. **Plan**: Identify all files needed and their dependencies
+2. **Create**: Build files in appropriate directories following the structure above
+3. **Integrate**: Update `server.js` to import and use new routes/middleware
+4. **Test**: Create corresponding test files with success and error cases
+5. **Verify**: Run tests and manually test endpoints
 
-3. **Test**
-   - Create test file
-   - Test success and error cases
+## Important Rules
 
-4. **Document**
-   - Add JSDoc comments
-   - Update README if needed
-
-## Rules for Agents
-
-### DO
-Follow .cursorrules automatically
-Ask if requirements are unclear
-Test code after generating it
-Use Plan Mode for multi-file changes
-
-### DON'T
-Make breaking changes without warning
-Skip error handling
-Hardcode secrets
-Delete existing functionality
-
-## Using Plan Mode
-
-Plan Mode is great for complex tasks:
-1. You describe what you want
-2. Agent creates a detailed plan
-3. You review and approve it
-4. Agent executes the plan
-
-**Example:**
-"Add JWT authentication to the API"
-
-The agent will plan to:
-- Install dependencies
-- Create auth middleware
-- Add login/register routes
-- Protect existing routes
-- Add tests
-
-## Multi-Agent Capabilities (Cursor 2.0)
-
-Cursor 2.0 can run multiple agents in parallel for complex tasks:
-- Each agent follows your .cursorrules automatically
-- Useful for comparing different implementation approaches
-- Agents work in isolated environments to prevent conflicts
-- Great for complex features where you want to try multiple solutions
-
-This advanced capability is available but not required for most workflows.
-
-## Tips for Better Results
-
-**Good Request**: "Add user search endpoint with pagination. Return max 50 results per page."
-
-**Vague Request**: "Add search feature"
-
-Use @ symbols to provide context:
-- `@Files` - Reference specific files
-- `@Folder` - Include directory context
+- **Ask first** if requirements are unclear or ambiguous
+- **Test your work** - don't just create code, verify it works
+- **Break down complexity** - tackle multi-file features one step at a time
+- **Coordinate imports** - ensure all files properly import dependencies
+- **Don't break existing code** - preserve working functionality unless explicitly asked to change it
 ```
 
-![Completing AGENTS.md file](./images/cursor28.png?raw=true "Completing AGENTS.md file")
+![Completing AGENTS.md file](./images/cursor99.png?raw=true "Completing AGENTS.md file")
 
 <br><br>
 
-7. Open a new chat via the "+" sign in the upper right of the chat panel. Now, test Agent Mode with Plan Mode by opening Composer (Cmd+I), switching to **"Plan"** Mode (via the dropdown), and requesting a complex task. After entering the prompt, go ahead and hit Enter/Submit:
+7. Open a new chat via the "+" sign in the upper right of the chat panel. Now, let's test the new AGENTS.md file with Plan Mode by switching to **"Plan"** (via the dropdown), and requesting a complex task. After entering the prompt, go ahead and hit Enter/Submit:
 
 ```
 Add a new feature: GET /tasks/:id/comments endpoint
@@ -508,12 +449,13 @@ Follow the workflow in AGENTS.md:
 <br><br>
 
 9. Review the generated plan. (You can see the "todos" in the chat and also click on those to see the "add-comments.plan.md" file with similar contents.) Notice how the AI follows the "How to Add a New Feature" workflow from AGENTS.md:
-   - ✅ Plans the files needed
-   - ✅ Creates route file in /routes
-   - ✅ Adds validation middleware
-   - ✅ Includes error handling (try-catch)
-   - ✅ Updates server.js
-   - ✅ Creates test file
+   - Plans the files needed and dependencies
+   - Creates route file in /routes directory
+   - Integrates by updating server.js
+   - Creates test file with test cases
+   - Follows file organization conventions from AGENTS.md
+  
+![Plan file](./images/cursor100.png?raw=true "Plan file")
 
 10. If the plan looks good, execute it with the **"Build"** command.
 
@@ -528,6 +470,11 @@ Follow the workflow in AGENTS.md:
 
 <br><br>
 
+12. After the build runs, you should see information about changed files, tests passed, etc.
+
+![Completed build](./images/cursor101.png?raw=true "Completed build")
+
+<br><br>
 
 <p align="center">
 **[END OF LAB]**
