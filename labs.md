@@ -12,9 +12,9 @@
 
 ---
 
-**Lab 1 - Smart Autocomplete & Inline Editing**
+**Lab 1 - Smart Autocomplete**
 
-**Purpose: Explore Cursor 2.0's real-time autocomplete and inline editing.**
+**Purpose: Explore Cursor 2.0's real-time autocomplete.**
 
 
 1. Start the Cursor app. Sign in if needed. Then select *Clone repo* on the main screen.
