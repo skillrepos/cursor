@@ -16,14 +16,11 @@ Free tier is fine for this workshop.
 
 ![Cursor install](./images/cursor1.png?raw=true "Cursor install")
 
-**3. Clone this repository with the following command:**
+**3. Install Node v20, Git, curl if not already present**
 
-```
-git clone https://github.com/skillrepos/cursor
-```
+Scripts for different platforms are available in the *scripts* directory. **Not guaranteed to work!**
 
-**4. Open the folder in Cursor: *File->Open Folder* or *Open project***
+**4. Open the [labs.md](./labs.md) file in a browser tab to have for the labs.**
 
-![Cursor open project](./images/cursor2.png?raw=true "Cursor open project")
   
 
