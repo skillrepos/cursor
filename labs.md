@@ -1,7 +1,7 @@
 # Cursor AI for Developers
 ## Hands-on AI-Assisted Coding
 ## Session Labs
-## Revision 2.0 - 10/31/25
+## Revision 3.0 - 11/01/25
 
 **Follow the startup instructions in the README.md file IF NOT ALREADY DONE!**
 
@@ -98,15 +98,17 @@ Cursor should suggest the remaining parameters like `req, res` or similar. Press
 </p>
 </br></br>
 
+**Lab 2 - Understanding Cursor's Modes - Build a REST API**
 
+**Purpose: In this lab, we'll learn when to use Chat and Edit (Cmd+K) modes by building a real Express API. You will use Chat mode for planning and questions and Edit mode for focused single-file changes, and Composer mode for multi-file coordination.**
 
-**Lab 2 - Chat & Context: Ask, Plan, and Debug**
+**Note:** Cursor 2.0 introduces an agent-first interface that you can toggle between traditional file-based and agent-focused views. For these labs, we'll use the workflows that work in both views.
 
-**Purpose: Learn to use Chat with @ symbols for reasoning and debugging**
-
-1. Let's see how we can use Chat Mode to plan and understand changes. If not open, open Chat by pressing Cmd+L (Mac) or Ctrl+L (Windows). Make sure the mode dropdown is set to **"Ask"**. Next to that, the selected model to use should be set to *Auto*.  If not, select the drop-down arrow next to the model name and enable the *Auto* option.
+1. Let's see how we can use Chat Mode to plan and understand changes. If not open, open Chat by pressing Cmd+L (Mac) or Ctrl+L (Windows). Make sure you're in **Ask mode** for asking questions and getting advice (not making changes yet).
 
 ![Ask mode](./images/cursor4.png?raw=true "Ask mode")
+
+*Note: Chat interface may look different in Cursor 2.0 - look for mode selector or similar options.*
 
 <br><br>
 
@@ -156,68 +158,40 @@ Add all 5 CRUD routes for tasks with:
 
 <br><br>
 
-6. Let's see how Cursor can help debug an issue. Add this code in server.js directly below the line: *app.use(express.json());*
+6. Select the entire file (Cmd+A), press Cmd+K, and provide this instruction to add error handling:
 
 ```
-// Health check endpoint with a bug to debug later
-app.get('/health', (req, res) => {
-  const status = {
-    service: 'Task API',
-    status: 'healthy',
-    uptime: process.uptime(),
-    timestamp: new Date().toIsoString() // BUG: should be toISOString()
-  };
-  res.json(status);
-});
+Wrap all route handlers with try-catch
+Add a global error handling middleware at the end
+Include 404 handler
+Return proper JSON error responses with status codes
 ```
 
-![Introducing error](./images/cursor89.png?raw=true "Introducing error")
+![Add error handling](./images/cursor10.png?raw=true "Add error handling")
 
 <br><br>
 
-7. Open a new terminal in Cursor via the menu *Terminal->New Terminal* or by dragging up from the bottom to see the terminal.
+7. Review and accept the changes as before with either *Accept* at the top or *Keep* for each independent change.
 
-![New terminal](./images/cursor90.png?raw=true "New terminal")
-
-<br><br>
-
-8. In the terminal, if you have node and npm installed, cd to the *my-api* directory*, install express via the second command below. Then start the server with the third command.
-
-```
-cd my-api
-npm install express
-npm start
-```
-
-![Starting server](./images/cursor91.png?raw=true "Starting server")
-
-9. Split the terminal via *Terminal->Split* or open a new terminal *Terminal->New Terminal*. (Or you can use the "+" in the upper right of the terminal.) In that new terminal, run the command below. Afterwards, you should see an error like "TypeError: (intermediate value).toIsoString is not a function".
-
-```
-curl http://localhost:3000/health
-```
-
-![Error](./images/cursor92.png?raw=true "Error")
+![Add error handling](./images/cursor59.png?raw=true "Add error handling")
 
 <br><br>
 
-10. In the Chat interface, switch to *Agent* mode (via the drop-down arrow next to *Ask*) and prompt Cursor about the problem by putting in the text below.
+8. Let's do one more. Select just the POST route, press Cmd+K, and add input validation:
 
 ```
-I'm getting this error:
-TypeError: toIsoString is not a function
-@File server.js - What's wrong and how do I fix it?
+Add validation middleware before the handler that checks:
+- title is present and is a string
+- description is optional but must be string if present
+- priority is one of: low, medium, high
+Return 400 with validation errors if invalid
 ```
 
-![Prompt about error](./images/cursor93.png?raw=true "Prompt about error")
+Accept the changes as before.
 
-11. Hit *Enter* and Cursor should identify the error and fix the typo. When done, you can just click *Keep* or *Keep All* (in the chat) to make the changes.
+![Prompt](./images/cursor62.png?raw=true "Prompt ")
 
-![Agent mode resolving error](./images/cursor94.png?raw=true "Agent mode resolving error")
-
-12. (Optional) You can restart the server in the first terminal and then run the curl command again and you should no longer see the error.
-
-![Fixed](./images/cursor95.png?raw=true "Fixed")
+![Keep](./images/cursor60.png?raw=true "Keep")
 
 <p align="center">
 **[END OF LAB]**
@@ -232,15 +206,27 @@ TypeError: toIsoString is not a function
 
 <br><br>
 
-2. Choose **Plan** mode so we can see the planning + execution by setting the mode dropdown to **"Plan"**.
+2. Choose **Plan** mode so we can see the planning + execution by setting the mode dropdown to **"Plan"**. Cursor 2.0's Composer model makes planning and execution up to 4x faster than previous versions, with most tasks completing in under 30 seconds.
 
 
 ![Plan mode](./images/cursor12.png?raw=true "Plan mode")
 
+*Note: UI may vary in Cursor 2.0 - look for "Plan" or similar agent mode option.*
 
 <br><br>
 
-3. Type this in the Chat panel to request a multi-file authentication feature:
+3. Before we start, let's explore Cursor 2.0's new **Agents panel**. Look for the **"Agents"** button in your sidebar (typically on the left side of the window). Click it to open the Agents panel.
+
+This panel shows:
+- Running agents and their real-time progress
+- Agent plans and task breakdowns
+- The ability to run multiple agents in parallel (advanced feature)
+
+You can toggle between the traditional file-based view and the new agent-first view here. For this lab, either view works - use what feels comfortable. Keep the Agents panel visible so you can watch the agent work through the plan.
+
+<br><br>
+
+4. Type this in the Chat panel to request a multi-file authentication feature:
 
 ```
 Create a complete authentication system for the API:
@@ -276,9 +262,11 @@ Make sure all files work together seamlessly.
 
 ![Plan mode questions](./images/cursor14.png?raw=true "Plan mode questions")
 
+*Note: Question format may differ in Cursor 2.0 - answer based on what you see.*
+
 <br><br>
 
-6. To answer these, you can just indicate in the chat the question number and the response (like the example below). There are multiple ways to do this, but one way is with this kind of response. The default answers are usually the first one (a) for each question. You can just tell it to "Use default answers" (in the Chat dialog) or you can respond with a chosen answer for each using the format below. 
+6. To answer these, you can just indicate in the chat the question number and the response (like the example below). There are multiple ways to do this, but one way is with this kind of response. The default answers are usually the first one (a) for each question. You can just tell it to "Use default answers" (in the Chat dialog) or you can respond with a chosen answer for each using the format below.
 
 ```
 1-a, 2-a, 3-a
@@ -288,7 +276,7 @@ Make sure all files work together seamlessly.
 
 <br><br>
 
-7. After it gets the answers to the questions, Cursor will provide a detailed plan with a set of "todos". It will probably open up a file with the detailed plan automatically, but if not, you can click on the "Read detailed plan" link to open it up.
+7. After it gets the answers to the questions, Cursor will provide a detailed plan with a set of "todos". It will probably open up a file with the detailed plan automatically, but if not, you can click on the "Read detailed plan" link to open it up. You can also watch the plan progress in the **Agents panel** you opened earlier.
 
 
 ![Detailed plan](./images/cursor16.png?raw=true "Detailed plan")
@@ -299,15 +287,17 @@ Make sure all files work together seamlessly.
 
 <br><br>
 
-9. After clicking **"Build"**, watch as Cursor creates each file automatically, shows progress as it works, and displays the final results.
+9. After clicking **"Build"**, watch as Cursor creates each file automatically, shows progress as it works, and displays the final results. The **Agents panel** will show real-time progress as each task completes.
 
 ![Implemented plan](./images/cursor17.png?raw=true "Implemented plan")
 
 <br><br>
 
-10. Above the chat area, you should see text like **"3 Files"** indicating how many files were changed. You can expand that and see the proposed changes by clicking on the files. You can review each proposed change and select **"Undo"** or **"Keep"** on each, or you can just select **"Keep All"** in the area above chat to keep all proposed changes.
+10. Above the chat area, you should see text like **"3 Files"** indicating how many files were changed. You can expand that and see the proposed changes by clicking on the files. You can review each proposed change and select **"Undo"** or **"Keep"** on each, or you can just select **"Keep All"** in the area above chat to keep all proposed changes. Cursor 2.0's enhanced review interface makes it easier to examine and approve multi-file changes.
 
 ![Reviewing changes](./images/cursor18.png?raw=true "Reviewing changes")
+
+*Note: File review UI may look different in Cursor 2.0 - look for "Keep All" or similar approval buttons.*
 
 <br><br>
 
@@ -371,9 +361,11 @@ Make sure all files work together seamlessly.
 
 <br><br>
 
-4. Test your rules by opening a new Chat ("+" in upper right of Chat panel), set it to **"Ask"** mode and ask: "Create a function to delete a user". Notice how Cursor automatically follows your rules by using async/await, including try-catch, adding JSDoc comments, having proper error handling, and using your naming conventions.
+4. Test your rules by opening a new Chat ("+" in upper right of Chat panel), make sure you're in Ask mode for asking questions, and ask: "Create a function to delete a user". Notice how Cursor automatically follows your rules by using async/await, including try-catch, adding JSDoc comments, having proper error handling, and using your naming conventions.
 
 ![Testing rules](./images/cursor25.png?raw=true "Testing rules")
+
+*Note: Chat panel UI may vary in Cursor 2.0 - functionality remains the same.*
 
 
 
@@ -463,6 +455,16 @@ The agent will plan to:
 - Protect existing routes
 - Add tests
 
+## Multi-Agent Capabilities (Cursor 2.0)
+
+Cursor 2.0 can run multiple agents in parallel for complex tasks:
+- Each agent follows your .cursorrules automatically
+- Useful for comparing different implementation approaches
+- Agents work in isolated environments to prevent conflicts
+- Great for complex features where you want to try multiple solutions
+
+This advanced capability is available but not required for most workflows.
+
 ## Tips for Better Results
 
 **Good Request**: "Add user search endpoint with pagination. Return max 50 results per page."
@@ -478,7 +480,7 @@ Use @ symbols to provide context:
 
 <br><br>
 
-6. Open a new chat via the "+" sign in the upper right of the chat panel. Now, test Agent Mode with Plan Mode by opening Composer (Cmd+I), switching to **"Plan"** Mode (via the dropdown), and requesting a complex task. After entering the prompt, go ahead and hit Enter/Submit:
+7. Open a new chat via the "+" sign in the upper right of the chat panel. Now, test Agent Mode with Plan Mode by opening Composer (Cmd+I), switching to **"Plan"** Mode (via the dropdown), and requesting a complex task. After entering the prompt, go ahead and hit Enter/Submit:
 
 ```
 Add a new feature: GET /tasks/:id/comments endpoint
@@ -496,14 +498,14 @@ Follow the workflow in AGENTS.md:
 
 <br><br>
 
-7. You may be asked questions to proceed. You can supply answers as we did in lab 2, step 6, or just tell the AI to take the defaults (first options) and proceed by typing "proceed" in the chat. 
+8. You may be asked questions to proceed. You can supply answers as we did in lab 3, step 6, or just tell the AI to take the defaults (first options) and proceed by typing "proceed" in the chat.
 
 
 ![Proceed for complex task](./images/cursor31.png?raw=true "Proceed for complex task")
 
 <br><br>
 
-8. Review the generated plan. (You can see the "todos" in the chat and also click on those to see the "add-comments.plan.md" file with similar contents.) Notice how the AI follows the "How to Add a New Feature" workflow from AGENTS.md:
+9. Review the generated plan. (You can see the "todos" in the chat and also click on those to see the "add-comments.plan.md" file with similar contents.) Notice how the AI follows the "How to Add a New Feature" workflow from AGENTS.md:
    - ✅ Plans the files needed
    - ✅ Creates route file in /routes
    - ✅ Adds validation middleware
@@ -511,14 +513,14 @@ Follow the workflow in AGENTS.md:
    - ✅ Updates server.js
    - ✅ Creates test file
 
-9. If the plan looks good, execute it with the **"Build"** command. 
+10. If the plan looks good, execute it with the **"Build"** command.
 
 ![Building for complex task](./images/cursor32.png?raw=true "Building for complex task")
-    
+
 
 <br><br>
 
-10. You may be prompted to allow execution of some commands along the way. You can add commands to the Allow list or just select **"Run"**.
+11. You may be prompted to allow execution of some commands along the way. You can add commands to the Allow list or just select **"Run"**.
 
 ![Proceed for complex task](./images/cursor33.png?raw=true "Proceed for complex task")
 
@@ -530,120 +532,41 @@ Follow the workflow in AGENTS.md:
 </p>
 </br></br>
 
-**Lab 5 - Code Review & Git with AI**
+**Lab 5 - Code Review, Debug & Git with AI**
 
-**Purpose: Learn how to use Cursor to review code for improvements and handle git operations like commits and branches.**
+**Purpose: Learn how to use Cursor to review code, debug errors, test with the browser tool (new in 2.0!), and handle git operations.**
 
+**Part A: Code Review with @ Symbols**
 
-**When You'll Use This:**
-- Before committing code (review your own changes)
-- When reviewing pull requests
-- When you need help with git commands
-- When creating commit messages
-
-
-1. Open your `server.js` file. Let's ask Cursor to review the code. Open a new Chat with the "+" sign, set mode to **"Ask"**, and type:
+1. Open your `server.js` file. Let's ask Cursor to review the code. Open a new Chat with the "+" sign, make sure you're in Ask mode, and type:
 
 ```
-@File server.js - Review this code and suggest improvements for:
-- Security issues
-- Code quality
-- Best practices
-- Performance optimizations
+@File server.js - Review this code and suggest improvements for security, code quality, and best practices.
 ```
+
+Review Cursor's suggestions. Cursor 2.0's enhanced review capabilities provide comprehensive analysis including rate limiting, input sanitization, error handling, and more.
 
 ![Request to review](./images/cursor50.png?raw=true "Request to review")
 
-<br><br>
-
-2. Review Cursor's suggestions. You'll likely see recommendations like:
-   - Adding rate limiting
-   - Improving error messages
-   - Adding input sanitization
-   - Using helmet for security headers
-   - Better logging practices
-
-
-![Review results](./images/cursor64.png?raw=true "Review results")
+*Note: Screenshots show previous Cursor UI. In Cursor 2.0, look for Chat/Agent mode selector and @ symbol suggestions.*
 
 <br><br>
 
-3. Now ask for specific review on a function. Select the `validateTask` or `validateTaskInput function (click and drag to highlight it), then press Cmd+L and type:
+2. For focused feedback, select any validation function in your code (click and drag to highlight it), press Cmd+L and type:
 
 ```
-@Selection - Review this validation function. What could be improved?
+@Selection - Review this function. What could be improved?
 ```
+
+Notice how @Selection gives targeted feedback. You can also use @Folder to review directories or @Codebase to search your entire project.
 
 ![Review request](./images/cursor65.png?raw=true "Review request")
 
-4. After you submit the prompt, notice how Cursor gives more focused feedback when you use @Selection on specific code.
-
-
-![Review results](./images/cursor66.png?raw=true "Review results")
-
 <br><br>
 
+**Part B: Debug with AI**
 
-5. Let's commit your changes. Open a new Chat, set mode to **"Agent"** (we want Cursor to execute git commands), and type:
-
-```
-Check git status and create a commit with all my changes. Write a good commit message that describes what was built in these labs.
-```
-
-<br><br>
-
-5. Cursor will:
-   - Run `git status` to see changes
-   - Stage files with `git add`
-   - Generate a descriptive commit message
-   - Show you the commit message before committing
-   - Ask for your approval (unless you've previously told it to just run everything)
-
-Review the commit message and approve if it looks good.
-
-![Review results](./images/cursor67.png?raw=true "Review results")
-
-<br><br>
-
-6. Create a new branch for experimentation. In Chat (Agent mode), type:
-
-```
-Create a new git branch called "experiment/refactoring" and switch to it
-```
-
-Cursor will run `git checkout -b experiment/refactoring` for you.
-
-
-![Create branch](./images/cursor68.png?raw=true "Create branch")
-
-<br><br>
-
-7. Try asking Cursor to help with other git operations:
-
-```
-Show me the git log for the last 3 commits in a readable format
-```
-
-![Last 3 commits](./images/cursor69.png?raw=true "Last 3 commits")
-
-
-<br><br>
-
-<p align="center">
-**[END OF LAB]**
-</p>
-</br></br>
-
-**Lab 6 - Debug with AI - Using Chat and Context Symbols**
-
-**Purpose: Learn how to use Chat mode with @ symbols to debug errors quickly.**
-
-**When You'll Use This:**
-- When you get an error message you don't understand
-- When code isn't working and you don't know why
-- When you need to understand how existing code works
-
-1. Add a simple health check route with a bug. Open `server.js` and add this code right after the `app.use(express.json());` line:
+3. Let's debug a real error. Add this buggy health check route in `server.js` right after the `app.use(express.json());` line:
 
 ```javascript
 // Health check endpoint
@@ -658,27 +581,7 @@ app.get('/health', (req, res) => {
 });
 ```
 
-![Add health check](./images/cursor44.png?raw=true "Add health check")
-
-<br><br>
-
-2. Save the file and start your server:
-
-```bash
-npm start
-```
-
-![Start server](./images/cursor43.png?raw=true "Start server")
-
-<br><br>
-
-3. Now, you'll need another terminal to run commands in. You can open a new one by clicking on the "+" sign in the upper right of the *TERMINAL* area or clicking on the "Split Terminal" icon as shown in the screenshot.
-
-![Split terminal](./images/cursor42.png?raw=true "Split terminal")
-
-<br><br>
-
-4. Now, let's test the health check endpoint:
+Save the file, run `npm start`, then in a new terminal test it with:
 
 ```bash
 curl http://localhost:3000/health
@@ -686,85 +589,89 @@ curl http://localhost:3000/health
 
 You'll see an error: `TypeError: (intermediate value).toIsoString is not a function`
 
-
 ![Error](./images/cursor45.png?raw=true "Error")
 
 <br><br>
 
-5. Let's have Cursor help us debug this. Open Chat (Cmd+L), set the mode to **"Ask"** (we just want advice, not execution), and use @ symbols to provide context:
+4. Open Chat (Cmd+L) in Ask mode and ask Cursor to debug using @File for context:
 
 ```
 I'm getting this error when I call GET /health:
 "TypeError: (intermediate value).toIsoString is not a function"
 
-@File server.js - Look at the health check route
-
-What's wrong and how do I fix it?
+@File server.js - Look at the health check route. What's wrong and how do I fix it?
 ```
+
+Cursor will read your code, identify the typo (toIsoString vs toISOString), and explain the fix.
 
 ![Error](./images/cursor46.png?raw=true "Error")
 
 <br><br>
 
-6. Notice how Chat:
-   - Reads your actual code via @File
-   - Identifies the typo (toIsoString vs toISOString)
-   - Explains the problem clearly
-   - Suggests the specific fix
-  
-![Error](./images/cursor47.png?raw=true "Error")
-
-<br><br>
-7. Let's see if Cursor can fix this automatically. Use the up arrow key to select the previous chat conversation. In that window, switch the mode to **"Agent"** and submit it again.
+5. Now let's have Cursor fix it automatically. Use the up arrow to select the previous prompt, switch to **Agent mode**, and submit again. Cursor will correct the error and verify the fix works.
 
 ![Error](./images/cursor48.png?raw=true "Error")
 
-8. Cursor should now go through and correct the error and suggest/run tests to verify functionality.
+<br><br>
 
-![Error](./images/cursor49.png?raw=true "Error")
+**Part C: Browser Tool Testing (New in Cursor 2.0!)**
 
-9. You can try other @ symbols to explore their uses (just submit these prompts in the chat):
+6. One of Cursor 2.0's most powerful features is the Browser tool - AI agents can now test their own code automatically! Make sure you have a `public` folder, then open Chat in **Agent mode** and type:
 
-**@Files** - Reference multiple files:
 ```
-How do these files work together?
-@File middleware/auth.js
-@File models/User.js
-@File server.js
+Create a file public/counter.html with:
+- A heading "Task Counter"
+- A button that says "Add Task"
+- A counter display starting at 0
+- JavaScript to increment counter on click
+Then open it in the browser and verify it works correctly
 ```
 
-![How files work together](./images/cursor71.png?raw=true "How files work together")
+Watch as Cursor creates the file, opens it in a browser, tests the button, and verifies functionality - all autonomously!
 
 <br><br>
 
-10. **@Folder** - Give context about a directory:
+7. Now let's see Cursor catch and fix bugs automatically. Ask it to:
 
 ```
-@Folder middleware/ - Explain what each middleware does
+Modify counter.html: add a "Reset" button that should reset counter to 0, but introduce a bug where it resets to 1 instead. Then test it in the browser and fix the bug you find.
 ```
 
-
-![What middleware does](./images/cursor72.png?raw=true "What middleware does")
-
+Cursor will add the buggy reset button, test it, notice the counter resets to 1 instead of 0, fix the bug, and test again. This test-and-iterate capability is a game-changer for development!
 
 <br><br>
 
-11. **@Codebase** - Search entire project:
-    
+**Part D: Git Operations with AI**
+
+8. Let's commit your work. In Chat (Agent mode), type:
+
 ```
-@Codebase Where is JWT token validation handled?
+Check git status and create a commit with all my changes. Write a good commit message that describes what was built in these labs.
 ```
 
-![Where is JWT token validation handled](./images/cursor73.png?raw=true "Where is JWT token validation handled")
+Cursor will run `git status`, stage files, generate a descriptive commit message, and ask for your approval before committing.
+
+![Review results](./images/cursor67.png?raw=true "Review results")
 
 <br><br>
 
+9. (Optional) Try other git operations like creating branches or viewing history:
 
+```
+Show me the git log for the last 3 commits in a readable format
+```
+
+You can also ask Cursor to create branches, merge changes, or handle any git workflow.
+
+![Last 3 commits](./images/cursor69.png?raw=true "Last 3 commits")
+
+<br><br>
 
 <p align="center">
 **[END OF LAB]**
 </p>
 </br></br>
+
 
 
 
