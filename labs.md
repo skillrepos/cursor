@@ -1,7 +1,7 @@
 # Cursor AI for Developers
 ## Hands-on AI-Assisted Coding
 ## Session Labs
-## Revision 3.0 - 11/01/25
+## Revision 3.1 - 11/01/25
 
 **Follow the startup instructions in the README.md file IF NOT ALREADY DONE!**
 
@@ -483,11 +483,9 @@ Follow the workflow in AGENTS.md:
 </p>
 </br></br>
 
-**Lab 5 - Code Review, Debug & Git with AI**
+**Lab 5 - Code Review and Debugging**
 
-**Purpose: Learn how to use Cursor to review code, debug errors, test with the browser tool (new in 2.0!), and handle git operations.**
-
-**Part A: Code Review with @ Symbols**
+**Purpose: Learn how to use Cursor to review code and debug errors.**
 
 1. Open your `server.js` file. Let's ask Cursor to review the code. Open a new Chat with the "+" sign, make sure you're in Ask mode, and type:
 
@@ -515,7 +513,6 @@ Notice how @selection gives targeted feedback. You can also use @Folder to revie
 
 <br><br>
 
-**Part B: Debug with AI**
 
 3. Let's debug a real error. Add this buggy health check route in `server.js` right after the `app.use(express.json());` line:
 
@@ -579,9 +576,18 @@ Cursor will read your code, identify the typo (toIsoString vs toISOString), and 
 ![Keep change](./images/cursor106.png?raw=true "Keep change")
 
 <br><br>
-**Part C: Browser Tool Testing (New in Cursor 2.0!)**
 
-9. One of Cursor 2.0's most powerful features is the Browser tool - AI agents can now test their own code automatically. First, create a `public` folder in the *my-api* directory. You can do this in a terminal.
+<p align="center">
+**[END OF LAB]**
+</p>
+</br></br>
+
+**Lab 6 - Browser Tool Testing and Driving Command Line Operations**
+
+**Purpose: Learn how to test with the browser tool (new in 2.0!), and handle git operations.**
+
+
+1. One of Cursor 2.0's most powerful features is the Browser tool - AI agents can now test their own code automatically. First, create a `public` folder in the *my-api* directory. You can do this in a terminal.
 
 ```
 cd my-api  (if not already there)
@@ -590,7 +596,7 @@ mkdir public
 
 <br><br>
 
-10. then open Chat in **Agent mode** and type in the text below:
+2. Then open Chat in **Agent mode** and type in the text below:
 
 ```
 Create a file public/counter.html with:
@@ -605,13 +611,13 @@ Then open it in the browser and verify it works correctly
 
 <br><br>
 
-11. Watch as Cursor creates the file, opens it in a browser, tests the button, and verifies functionality - all autonomously! 
+3. Watch as Cursor creates the file, opens it in a browser, tests the button, and verifies functionality - all autonomously! 
 
 ![Automated browser](./images/cursor108.png?raw=true "Automated browser")
 
 <br><br>
 
-12. Now let's see Cursor catch and fix bugs automatically. In chat in Agent mode:
+4. Now let's see Cursor catch and fix bugs automatically. In chat in Agent mode:
 
 ```
 Modify counter.html: add a "Reset" button that should reset counter to 0, but introduce a bug where it resets to 1 instead. Then test it in the browser and fix the bug you find.
@@ -625,9 +631,7 @@ Cursor will add the buggy reset button, test it, notice the counter resets to 1 
 
 <br><br>
 
-**Part D: Git Operations with AI**
-
-13. Let's commit your work. In Chat (Agent mode), type:
+5. Let's commit your work. In Chat (Agent mode), type:
 
 ```
 Check git status and create a commit with all my changes. Write a good commit message that describes what was built in these labs.
@@ -639,7 +643,7 @@ Cursor will run `git status`, stage files, generate a descriptive commit message
 
 <br><br>
 
-14. (Optional) Try other git operations like creating branches or viewing history:
+6. (Optional) Try other git operations like creating branches or viewing history:
 
 ```
 Show me the git log for the last 3 commits in a readable format
