@@ -457,6 +457,8 @@ Follow the workflow in AGENTS.md:
   
 ![Plan file](./images/cursor100.png?raw=true "Plan file")
 
+<br><br>
+
 10. If the plan looks good, execute it with the **"Build"** command.
 
 ![Building for complex task](./images/cursor32.png?raw=true "Building for complex task")
