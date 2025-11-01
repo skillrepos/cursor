@@ -503,13 +503,13 @@ Review Cursor's suggestions. Cursor 2.0's enhanced review capabilities provide c
 
 <br><br>
 
-2. For focused feedback, select any validation function in your code (click and drag to highlight it), press Cmd+L and type:
+2. For focused feedback, select any function in your code (click and drag to highlight it), switch to the chat interface and type:
 
 ```
-@Selection - Review this function. What could be improved?
+@selection - Review this function. What could be improved?
 ```
 
-Notice how @Selection gives targeted feedback. You can also use @Folder to review directories or @Codebase to search your entire project.
+Notice how @selection gives targeted feedback. You can also use @Folder to review directories or @Codebase to search your entire project.
 
 ![Review request](./images/cursor65.png?raw=true "Review request")
 
@@ -532,7 +532,14 @@ app.get('/health', (req, res) => {
 });
 ```
 
-Save the file, run `npm start`, then in a new terminal test it with:
+4. Save the file. Open a terminal (menu: *Terminal->New Terminal*), start the server.
+
+```bash
+cd my-api
+npm start
+```
+
+5. Then, in a new terminal (menu: *Terminal->Split Terminal*), test it with:
 
 ```bash
 curl http://localhost:3000/health
@@ -540,11 +547,11 @@ curl http://localhost:3000/health
 
 You'll see an error: `TypeError: (intermediate value).toIsoString is not a function`
 
-![Error](./images/cursor45.png?raw=true "Error")
+![Error](./images/cursor102.png?raw=true "Error")
 
 <br><br>
 
-4. Open Chat (Cmd+L) in Ask mode and ask Cursor to debug using @File for context:
+6. Switch to the chat panel in Ask mode and ask Cursor to debug using @File for context:
 
 ```
 I'm getting this error when I call GET /health:
@@ -555,19 +562,35 @@ I'm getting this error when I call GET /health:
 
 Cursor will read your code, identify the typo (toIsoString vs toISOString), and explain the fix.
 
-![Error](./images/cursor46.png?raw=true "Error")
+![Error](./images/cursor103.png?raw=true "Error")
 
 <br><br>
 
-5. Now let's have Cursor fix it automatically. Use the up arrow to select the previous prompt, switch to **Agent mode**, and submit again. Cursor will correct the error and verify the fix works.
+7. Now let's have Cursor fix it automatically. Click back in the original chat question, switch to **Agent mode**, and submit again. Cursor will correct the error and verify the fix works.
 
-![Error](./images/cursor48.png?raw=true "Error")
+![Switch to agent](./images/cursor104.png?raw=true "Switch to agent")
+
+![Keep change](./images/cursor105.png?raw=true "Keep change")
 
 <br><br>
 
+8. After this, you can click on the *Keep* button for the proposed change, stop the server in the terminal and start it again. Then try the curl command again and it should work.
+
+![Keep change](./images/cursor106.png?raw=true "Keep change")
+
+<br><br>
 **Part C: Browser Tool Testing (New in Cursor 2.0!)**
 
-6. One of Cursor 2.0's most powerful features is the Browser tool - AI agents can now test their own code automatically! Make sure you have a `public` folder, then open Chat in **Agent mode** and type:
+9. One of Cursor 2.0's most powerful features is the Browser tool - AI agents can now test their own code automatically. First, create a `public` folder in the *my-api* directory. You can do this in a terminal.
+
+```
+cd my-api  (if not already there)
+mkdir public
+```
+
+<br><br>
+
+10. then open Chat in **Agent mode** and type in the text below:
 
 ```
 Create a file public/counter.html with:
@@ -578,11 +601,17 @@ Create a file public/counter.html with:
 Then open it in the browser and verify it works correctly
 ```
 
-Watch as Cursor creates the file, opens it in a browser, tests the button, and verifies functionality - all autonomously!
+![Add counter instructions](./images/cursor107.png?raw=true "Add counter instructions")
 
 <br><br>
 
-7. Now let's see Cursor catch and fix bugs automatically. Ask it to:
+11. Watch as Cursor creates the file, opens it in a browser, tests the button, and verifies functionality - all autonomously! 
+
+![Automated browser](./images/cursor108.png?raw=true "Automated browser")
+
+<br><br>
+
+12. Now let's see Cursor catch and fix bugs automatically. In chat in Agent mode:
 
 ```
 Modify counter.html: add a "Reset" button that should reset counter to 0, but introduce a bug where it resets to 1 instead. Then test it in the browser and fix the bug you find.
@@ -590,23 +619,27 @@ Modify counter.html: add a "Reset" button that should reset counter to 0, but in
 
 Cursor will add the buggy reset button, test it, notice the counter resets to 1 instead of 0, fix the bug, and test again. This test-and-iterate capability is a game-changer for development!
 
+![Add bug](./images/cursor109.png?raw=true "Add bug")
+
+![Fixed](./images/cursor110.png?raw=true "Fixed")
+
 <br><br>
 
 **Part D: Git Operations with AI**
 
-8. Let's commit your work. In Chat (Agent mode), type:
+13. Let's commit your work. In Chat (Agent mode), type:
 
 ```
 Check git status and create a commit with all my changes. Write a good commit message that describes what was built in these labs.
 ```
 
-Cursor will run `git status`, stage files, generate a descriptive commit message, and ask for your approval before committing.
+Cursor will run `git status`, stage files, generate a descriptive commit message, and may ask for your approval before committing.
 
-![Review results](./images/cursor67.png?raw=true "Review results")
+![Review results](./images/cursor111.png?raw=true "Review results")
 
 <br><br>
 
-9. (Optional) Try other git operations like creating branches or viewing history:
+14. (Optional) Try other git operations like creating branches or viewing history:
 
 ```
 Show me the git log for the last 3 commits in a readable format
