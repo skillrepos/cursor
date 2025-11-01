@@ -98,11 +98,9 @@ Cursor should suggest the remaining parameters like `req, res` or similar. Press
 </p>
 </br></br>
 
-**Lab 2 - Understanding Cursor's Modes - Build a REST API**
+**Lab 2 - Ask vs. Edit Modes - Build a REST API**
 
-**Purpose: In this lab, we'll learn when to use Chat and Edit (Cmd+K) modes by building a real Express API. You will use Chat mode for planning and questions and Edit mode for focused single-file changes, and Composer mode for multi-file coordination.**
-
-**Note:** Cursor 2.0 introduces an agent-first interface that you can toggle between traditional file-based and agent-focused views. For these labs, we'll use the workflows that work in both views.
+**Purpose: Learn when to use Ask mode for planning and advice versus Edit mode (Cmd+K) for making code changes. Get architecture guidance using Ask mode, then implement routes, error handling, and validation using inline editing.**
 
 1. Let's see how we can use Chat Mode to plan and understand changes. If not open, open Chat by pressing Cmd+L (Mac) or Ctrl+L (Windows). Make sure you're in **Ask mode** for asking questions and getting advice (not making changes yet).
 
