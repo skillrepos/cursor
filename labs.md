@@ -197,7 +197,7 @@ npm start
 curl http://localhost:3000/health
 ```
 
-[!Error](./images/cursor92.png?raw=true "Error")
+![Error](./images/cursor92.png?raw=true "Error")
 
 <br><br>
 
@@ -209,15 +209,15 @@ TypeError: toIsoString is not a function
 @File server.js - What's wrong and how do I fix it?
 ```
 
-[!Prompt about error](./images/cursor93.png?raw=true "Prompt about error")
+![Prompt about error](./images/cursor93.png?raw=true "Prompt about error")
 
 11. Hit *Enter* and Cursor should identify the error and fix the typo. When done, you can just click *Keep* or *Keep All* (in the chat) to make the changes.
 
-[!Agent mode resolving error](./images/cursor94.png?raw=true "Agent mode resolving error")
+![Agent mode resolving error](./images/cursor94.png?raw=true "Agent mode resolving error")
 
 12. (Optional) You can restart the server in the first terminal and then run the curl command again and you should no longer see the error.
 
-[!Fixed](./images/cursor95.png?raw=true "Fixed")
+![Fixed](./images/cursor95.png?raw=true "Fixed")
 
 <p align="center">
 **[END OF LAB]**
