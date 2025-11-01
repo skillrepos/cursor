@@ -17,7 +17,7 @@
 **Purpose: Explore Cursor 2.0's real-time autocomplete and inline editing.**
 
 
-1. Start the Cursor app and select *Clone repo* on the main screen.
+1. Start the Cursor app. Sign in if needed. Then select *Clone repo* on the main screen.
 
 ![clone in Cursor](./images/cursor81.png?raw=true "Clone in Cursor")
 
