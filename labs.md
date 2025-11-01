@@ -12,9 +12,9 @@
 
 ---
 
-**Lab 1 - Smart Autocomplete**
+**Lab 1 - Understanding Cursor's Autocomplete Functionality**
 
-**Purpose: Explore Cursor 2.0's real-time autocomplete.**
+**Purpose: In this lab, we'll see how to use Cursor's autocomplete for code suggestions.**
 
 
 1. Start the Cursor app. Sign in if needed. Then select *Clone repo* on the main screen.
