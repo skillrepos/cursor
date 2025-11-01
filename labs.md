@@ -202,7 +202,7 @@ Accept the changes as before.
 
 **Purpose: In this lab, we'll utilize Chat mode for multi-file coordination.**
 
-1. If not already open, open the main Chat panel via Cmd+L.
+1. Open a new chat via Cmd+Shift+L / Ctrl+Shift+L.
 
 <br><br>
 
@@ -223,6 +223,8 @@ This panel shows:
 - The ability to run multiple agents in parallel (advanced feature)
 
 You can toggle between the traditional file-based view and the new agent-first view here. For this lab, either view works - use what feels comfortable. Keep the Agents panel visible so you can watch the agent work through the plan.
+
+![Agent panel](./images/cursor98.png?raw=true "Agent panel")
 
 <br><br>
 
@@ -311,7 +313,7 @@ Make sure all files work together seamlessly.
 **Purpose: In this lab, we'll focus on .cursorrules for project standards and AGENTS.md for autonomous AI workflows. You will create .cursorrules to enforce team coding standards, write AGENTS.md to guide AI Agent behavior, and use Agent Mode with Plan Mode for complex tasks.**
 
 
-1. `.cursorrules` teaches Cursor your project's standards. Every AI suggestion follows these rules automatically. In the file explorer on the left, select one of the files in the root of the **"my-api"** directory, such as **"package.json"** or **"server.js"**. Then click on the **"New File..."** icon (see screenshot) or you can use the menu at **"File->New Text File"** entry.
+1. `.cursorrules` teaches Cursor your project's standards. Every AI suggestion follows these rules automatically. In *Editor* panel (not the *Agents* one), in the file explorer on the left, select one of the files in the root of the **"my-api"** directory, such as **"package.json"** or **"server.js"**. Then click on the **"New File..."** icon (see screenshot) or you can use the menu at **"File->New Text File"** entry.
 
 ![Creating cursorrules file](./images/cursor21.png?raw=true "Creating cursorrules file")
 
