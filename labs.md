@@ -98,11 +98,13 @@ Cursor should suggest the remaining parameters like `req, res` or similar. Press
 </p>
 </br></br>
 
-**Lab 2 - Understanding Cursor's Modes - Build a REST API**
 
-**Purpose: In this lab, we'll learn when to use Chat and Edit (Cmd+K) modes by building a real Express API. You will use Chat mode for planning and questions and Edit mode for focused single-file changes, and Composer mode for multi-file coordination.**
 
-1. Let's see how we can use Chat Mode to plan and understand changes. If not open, open Chat by pressing Cmd+L (Mac) or Ctrl+L (Windows). Make sure the mode dropdown is set to **"Ask"**.
+**Lab 2 - Chat & Context: Ask, Plan, and Debug**
+
+**Purpose: Learn to use Chat with @ symbols for reasoning and debugging**
+
+1. Let's see how we can use Chat Mode to plan and understand changes. If not open, open Chat by pressing Cmd+L (Mac) or Ctrl+L (Windows). Make sure the mode dropdown is set to **"Ask"**. Next to that, the selected model to use should be set to *Auto*.  If not, select the drop-down arrow next to the model name and enable the *Auto* option.
 
 ![Ask mode](./images/cursor4.png?raw=true "Ask mode")
 
@@ -154,40 +156,68 @@ Add all 5 CRUD routes for tasks with:
 
 <br><br>
 
-6. Select the entire file (Cmd+A), press Cmd+K, and provide this instruction to add error handling:
+6. Let's see how Cursor can help debug an issue. Add this code in server.js directly below the line: *app.use(express.json());*
 
 ```
-Wrap all route handlers with try-catch
-Add a global error handling middleware at the end
-Include 404 handler
-Return proper JSON error responses with status codes
+// Health check endpoint with a bug to debug later
+app.get('/health', (req, res) => {
+  const status = {
+    service: 'Task API',
+    status: 'healthy',
+    uptime: process.uptime(),
+    timestamp: new Date().toIsoString() // BUG: should be toISOString()
+  };
+  res.json(status);
+});
 ```
 
-![Add error handling](./images/cursor10.png?raw=true "Add error handling")
+![Introducing error](./images/cursor89.png?raw=true "Introducing error")
 
 <br><br>
 
-7. Review and accept the changes as before with either *Accept* at the top or *Keep* for each independent change.
+7. Open a new terminal in Cursor via the menu *Terminal->New Terminal* or by dragging up from the bottom to see the terminal.
 
-![Add error handling](./images/cursor59.png?raw=true "Add error handling")
+![New terminal](./images/cursor90.png?raw=true "New terminal")
 
 <br><br>
 
-8. Let's do one more. Select just the POST route, press Cmd+K, and add input validation:
+8. In the terminal, if you have node and npm installed, cd to the *my-api* directory*, install express via the second command below. Then start the server with the third command.
 
 ```
-Add validation middleware before the handler that checks:
-- title is present and is a string
-- description is optional but must be string if present
-- priority is one of: low, medium, high
-Return 400 with validation errors if invalid
+cd my-api
+npm install express
+npm start
 ```
 
-Accept the changes as before.
+![Starting server](./images/cursor91.png?raw=true "Starting server")
 
-![Prompt](./images/cursor62.png?raw=true "Prompt ")
+9. Split the terminal via *Terminal->Split* or open a new terminal *Terminal->New Terminal*. (Or you can use the "+" in the upper right of the terminal.) In that new terminal, run the command below. Afterwards, you should see an error like "TypeError: (intermediate value).toIsoString is not a function".
 
-![Keep](./images/cursor60.png?raw=true "Keep")
+```
+curl http://localhost:3000/health
+```
+
+[!Error](./images/cursor92.png?raw=true "Error")
+
+<br><br>
+
+10. In the Chat interface, switch to *Agent* mode (via the drop-down arrow next to *Ask*) and prompt Cursor about the problem by putting in the text below.
+
+```
+I'm getting this error:
+TypeError: toIsoString is not a function
+@File server.js - What's wrong and how do I fix it?
+```
+
+[!Prompt about error](./images/cursor93.png?raw=true "Prompt about error")
+
+11. Hit *Enter* and Cursor should identify the error and fix the typo. When done, you can just click *Keep* or *Keep All* (in the chat) to make the changes.
+
+[!Agent mode resolving error](./images/cursor94.png?raw=true "Agent mode resolving error")
+
+12. (Optional) You can restart the server in the first terminal and then run the curl command again and you should no longer see the error.
+
+[!Fixed](./images/cursor95.png?raw=true "Fixed")
 
 <p align="center">
 **[END OF LAB]**
