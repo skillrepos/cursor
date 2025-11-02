@@ -18,9 +18,9 @@ Free tier is fine for this workshop.
 
 **3. Install Node v20, Git, curl if not already present**
 
-Scripts for different platforms are available in the *scripts* directory. **Not guaranteed to work!**
+Scripts for different platforms are available in the *scripts* directory to use after cloning repo. **Not guaranteed to work!**
 
 **4. Open the [labs.md](./labs.md) file in a browser tab to have for the labs.**
 
-  
+![Labs](./images/cursor113.png?raw=true "Labs")  
 
