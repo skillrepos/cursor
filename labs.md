@@ -102,7 +102,7 @@ Cursor should suggest the remaining parameters like `req, res` or similar. Press
 
 **Purpose: Learn when to use Ask mode for planning and advice versus Edit mode (Cmd+K) for making code changes. Get architecture guidance using Ask mode, then implement routes, error handling, and validation using inline editing.**
 
-1. Let's see how we can use Chat Mode to plan and understand changes. If not open, open Chat by pressing Cmd+L (Mac) or Ctrl+L (Windows). Make sure you're in **Ask mode** for asking questions and getting advice (not making changes yet).
+1. Let's see how we can use Chat's modes to plan and understand changes. If not open, open Chat by pressing Cmd+L (Mac) or Ctrl+L (Windows). Make sure you're in **Ask mode** for asking questions and getting advice (not making changes yet).
 
 ![Ask mode](./images/cursor4.png?raw=true "Ask mode")
 
