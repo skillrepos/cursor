@@ -196,9 +196,9 @@ Accept the changes as before.
 </p>
 </br></br>
 
-**Lab 3 - Multi-File Coordination with Chat**
+**Lab 3 - Multi-File Coordination with Plan Mode**
 
-**Purpose: In this lab, we'll utilize Chat mode for multi-file coordination.**
+**Purpose: Learn how to use Plan mode for multi-file features and explore the new Agents panel. Create a complete authentication system spanning multiple files with AI-guided planning and execution.**
 
 1. Open a new chat via Cmd+Shift+L / Ctrl+Shift+L.
 
