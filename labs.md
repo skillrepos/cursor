@@ -1,9 +1,11 @@
 # Cursor AI for Developers
 ## Hands-on AI-Assisted Coding
 ## Session Labs
-## Revision 3.1 - 11/01/25
+## Revision 3.2 - 11/02/25
 
 **Follow the startup instructions in the README.md file IF NOT ALREADY DONE!**
+
+**Some screenshots/interfaces may look different depending on your platform and differences in Cursor 2.0**
 
 **Make sure you have the following ready to go.**
 - A local instance of Cursor 2.0 installed
@@ -106,7 +108,7 @@ Cursor should suggest the remaining parameters like `req, res` or similar. Press
 
 ![Ask mode](./images/cursor4.png?raw=true "Ask mode")
 
-*Note: Chat interface may look different in Cursor 2.0 - look for mode selector or similar options.*
+
 
 <br><br>
 
@@ -200,16 +202,14 @@ Accept the changes as before.
 
 **Purpose: Learn how to use Plan mode for multi-file features and explore the new Agents panel. Create a complete authentication system spanning multiple files with AI-guided planning and execution.**
 
-1. Open a new chat via Cmd+Shift+L / Ctrl+Shift+L.
+1. Open a new chat via Cmd+Shift+L / Ctrl+Shift+L or via using the "+" sign in upper right of Chat panel.
 
 <br><br>
 
-2. Choose **Plan** mode so we can see the planning + execution by setting the mode dropdown to **"Plan"**. Cursor 2.0's Composer model makes planning and execution up to 4x faster than previous versions, with most tasks completing in under 30 seconds.
+2. Choose **Plan** mode so we can see the planning + execution by setting the mode dropdown to **"Plan"**. 
 
 
 ![Plan mode](./images/cursor12.png?raw=true "Plan mode")
-
-*Note: UI may vary in Cursor 2.0 - look for "Plan" or similar agent mode option.*
 
 <br><br>
 
@@ -220,7 +220,7 @@ This panel shows:
 - Agent plans and task breakdowns
 - The ability to run multiple agents in parallel (advanced feature)
 
-You can toggle between the traditional file-based view and the new agent-first view here. For this lab, either view works - use what feels comfortable. Keep the Agents panel visible so you can watch the agent work through the plan.
+You can toggle between the traditional file-based view and the new agent-first view here. For this lab, either view works - use what feels comfortable. 
 
 ![Agent panel](./images/cursor98.png?raw=true "Agent panel")
 
@@ -262,7 +262,6 @@ Make sure all files work together seamlessly.
 
 ![Plan mode questions](./images/cursor14.png?raw=true "Plan mode questions")
 
-*Note: Question format may differ in Cursor 2.0 - answer based on what you see.*
 
 <br><br>
 
@@ -293,11 +292,9 @@ Make sure all files work together seamlessly.
 
 <br><br>
 
-10. Above the chat area, you should see text like **"3 Files"** indicating how many files were changed. You can expand that and see the proposed changes by clicking on the files. You can review each proposed change and select **"Undo"** or **"Keep"** on each, or you can just select **"Keep All"** in the area above chat to keep all proposed changes. Cursor 2.0's enhanced review interface makes it easier to examine and approve multi-file changes.
-
+10. Above the chat area, you should see text like **"3 Files"** indicating how many files were changed. You can expand that and see the proposed changes by clicking on the files. You can review each proposed change and select **"Undo"** or **"Keep"** on each, or you can just select **"Keep All"** in the area above chat to keep all proposed changes. 
 ![Reviewing changes](./images/cursor18.png?raw=true "Reviewing changes")
 
-*Note: File review UI may look different in Cursor 2.0 - look for "Keep All" or similar approval buttons.*
 
 <br><br>
 
@@ -365,7 +362,7 @@ Make sure all files work together seamlessly.
 
 ![Testing rules](./images/cursor25.png?raw=true "Testing rules")
 
-*Note: Chat panel UI may vary in Cursor 2.0 - functionality remains the same.*
+
 
 
 
@@ -491,11 +488,11 @@ Follow the workflow in AGENTS.md:
 @File server.js - Review this code and suggest improvements for security, code quality, and best practices.
 ```
 
-Review Cursor's suggestions. Cursor 2.0's enhanced review capabilities provide comprehensive analysis including rate limiting, input sanitization, error handling, and more.
+Review Cursor's suggestions. 
 
 ![Request to review](./images/cursor50.png?raw=true "Request to review")
 
-*Note: Screenshots show previous Cursor UI. In Cursor 2.0, look for Chat/Agent mode selector and @ symbol suggestions.*
+
 
 <br><br>
 
