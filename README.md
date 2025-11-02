@@ -4,7 +4,7 @@
 
 This 3-hour hands-on workshop teaches you how to leverage Cursor's AI features to build applications faster and more efficiently. You'll learn essential AI-assisted development techniques through guided labs and practical exercises.
 
-**Prerequisites:** Git installed, Basic programming knowledge (JavaScript/Python helpful but not required)
+**Prerequisites:** Cursor, Node, curl & Git installed locally on your system. Basic programming knowledge (JavaScript/Python helpful but not required)
 
 These instructions will guide you through configuring a GitHub Codespaces environment that you can use to do the labs. 
 
