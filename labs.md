@@ -45,7 +45,7 @@ https://github.com/skillrepos/cursor
 
 <br><br>
 
-4. First, let's enable Tab autocomplete if it's not already on. Go to Cursor Settings (via menu or gear icon in upper right), search for "Cursor Tab", and make sure it's enabled under Features > Cursor Tab. Also make sure that "Partial Accepts" is enabled. You can click on the "X" at the top afterwards to close that tab.
+4. First, let's enable Tab autocomplete if it's not already on. Go to Cursor Settings (via menu or gear icon in upper right), search for "Cursor Tab", and make sure it's enabled under Tab > Cursor Tab. Also make sure that "Partial Accepts" is enabled. You can click on the "X" at the top afterwards to close that tab.
 
 ![Enable Tab](./images/cursor85.png?raw=true "Enable Tab")
 
