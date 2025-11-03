@@ -496,7 +496,7 @@ Follow the workflow in AGENTS.md:
 
 **Purpose: Learn how to use Cursor to review code and debug errors.**
 
-1. Open your `server.js` file. Let's ask Cursor to review the code. Open a new Chat with the "+" sign, make sure you're in Ask mode, and type:
+1. Open your `server.js` file. Let's ask Cursor to review the code. Open a new Chat, make sure you're in *Ask* mode, and type:
 
 ```
 @File server.js - Review this code and suggest improvements for security, code quality, and best practices.
@@ -557,7 +557,7 @@ You'll see an error: `TypeError: (intermediate value).toIsoString is not a funct
 
 <br><br>
 
-6. Switch to the chat panel in Ask mode and ask Cursor to debug using @File for context:
+6. Switch to the chat panel in **Ask mode** and ask Cursor to debug using @File for context:
 
 ```
 I'm getting this error when I call GET /health:
@@ -572,7 +572,7 @@ Cursor will read your code, identify the typo (toIsoString vs toISOString), and 
 
 <br><br>
 
-7. Now let's have Cursor fix it automatically. Click back in the original chat question, switch to **Agent mode**, and submit again. Cursor will correct the error and verify the fix works.
+7. Now let's have Cursor fix it automatically. Click back in the original chat question, switch to **Agent mode**, and submit again. Cursor will correct the error and verify the fix works. 
 
 ![Switch to agent](./images/cursor104.png?raw=true "Switch to agent")
 
