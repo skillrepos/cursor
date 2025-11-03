@@ -485,6 +485,8 @@ Follow the workflow in AGENTS.md:
 
 <br><br>
 
+14. After the agent is done, you can select "Keep All" to persist the changes.
+
 <p align="center">
 **[END OF LAB]**
 </p>
