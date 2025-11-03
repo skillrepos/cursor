@@ -375,7 +375,7 @@ Create a function to delete a user
 <br><br>
 
 
-5. Now let's create an `AGENTS.md` file. `AGENTS.md` guides autonomous AI Agents through complex, multi-step tasks. Create the file in the same way as you did for the .cursorrules one.
+5. Now let's create an `AGENTS.md` file. `AGENTS.md` guides autonomous AI Agents through complex, multi-step tasks. Create the file in the same way as you did for the .cursorrules one and save it.
 
 
 ![Creating AGENTS.md file](./images/cursor26.png?raw=true "Creating AGENTS.md file")
@@ -460,20 +460,26 @@ Follow the workflow in AGENTS.md:
 
 <br><br>
 
-10. If the plan looks good, execute it with the **"Build"** command.
+10. If the plan looks good, go back to the chat where you entered the prompt in step 7 and change "Plan" to "Agent" and submit it.
 
-![Building for complex task](./images/cursor32.png?raw=true "Building for complex task")
+![Change plan to agent](./images/cursor116.png?raw=true "Change plan to agent")
 
 
 <br><br>
 
-11. You may be prompted to allow execution of some commands along the way. You can add commands to the Allow list or just select **"Run"**.
+11. As this runs, you may be prompted about whether you would like Cursor to do certain tasks. You can just let it know to proceed via the chat.
+
+![Proceed](./images/cursor117.png?raw=true "Proceed")
+
+<br><br>
+
+12. You may also be prompted allow execution of some commands along the way. If the Allow list is an option, you can add commands to the Allow list or just select one of the other options presented as appropriate.
 
 ![Proceed for complex task](./images/cursor33.png?raw=true "Proceed for complex task")
 
 <br><br>
 
-12. After the build runs, you should see information about changed files, tests passed, etc.
+13. After the build runs, you should see information about changed files, tests passed, etc.
 
 ![Completed build](./images/cursor101.png?raw=true "Completed build")
 
