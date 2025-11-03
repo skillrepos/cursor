@@ -364,13 +364,13 @@ Make sure all files work together seamlessly.
 
 <br><br>
 
-4. Test your rules by opening a new Chat ("+" in upper right of Chat panel), make sure you're in Ask mode for asking questions, and ask: "Create a function to delete a user". Notice how Cursor automatically follows your rules by using async/await, including try-catch, adding JSDoc comments, having proper error handling, and using your naming conventions.
+4. Test your rules by opening a new Chat ("+" in upper right of Chat panel), make sure you're in **Ask** mode for asking questions, and ask: "Create a function to delete a user". Notice how Cursor automatically follows your rules by using async/await, including try-catch, adding JSDoc comments, having proper error handling, and using your naming conventions.
 
+```
+Create a function to delete a user
+```
+   
 ![Testing rules](./images/cursor25.png?raw=true "Testing rules")
-
-
-
-
 
 <br><br>
 
