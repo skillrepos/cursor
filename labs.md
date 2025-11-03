@@ -1,7 +1,7 @@
 # Cursor AI for Developers
 ## Hands-on AI-Assisted Coding
 ## Session Labs
-## Revision 3.2 - 11/02/25
+## Revision 3.4 - 11/03/25
 
 **Follow the startup instructions in the README.md file IF NOT ALREADY DONE!**
 
@@ -70,7 +70,7 @@ As you type, you should see **gray ghost text** appear - this is Cursor suggesti
 // Function to get all tasks from
 ```
 
-Notice how Cursor predicts you might write "database" or "storage" and suggests completing your comment. Instead of using **Tab** to accept the full change, use the **Cmd/Ctrl + right arrow** to accept one word at a time. When you get enough, hit *Esc* to reject the changes. 
+Notice how Cursor predicts you might write "database" or "storage" and suggests completing your comment. Instead of using **Tab** to accept the full change, use the **Cmd/Ctrl + right arrow** to accept one word at a time. When you gone as far as you want, you can hit *Esc* to reject the remaining changes. 
 
 
 ![Auto2](./images/cursor53.png?raw=true "Auto2")
