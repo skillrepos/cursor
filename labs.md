@@ -226,7 +226,7 @@ You can toggle between the traditional file-based view and the new agent-first v
 
 <br><br>
 
-4. Type this in the Chat panel to request a multi-file authentication feature:
+4. Type this in the Chat panel to request a multi-file authentication feature and then submit it with the "up arrow" (or hit Enter):
 
 ```
 Create a complete authentication system for the API:
@@ -275,26 +275,32 @@ Make sure all files work together seamlessly.
 
 <br><br>
 
-7. After it gets the answers to the questions, Cursor will provide a detailed plan with a set of "todos". It will probably open up a file with the detailed plan automatically, but if not, you can click on the "Read detailed plan" link to open it up. You can also watch the plan progress in the **Agents panel** you opened earlier.
+7. After it gets the answers to the questions, Cursor will provide a detailed plan with a set of "todos". It will probably open up a file with the detailed plan automatically, but if not, you can click on the "View Plan" link to open it up. You can also watch the plan progress in the **Agents panel** you opened earlier.
 
 
 ![Detailed plan](./images/cursor16.png?raw=true "Detailed plan")
 
 <br><br>
 
-8. Review the plan carefully, read each step, then click **"Build"** when ready to have Cursor execute the plan.
+8. Review the plan carefully, read each step, then click one of the **"Build"** buttons when ready to have Cursor execute the plan.
 
 <br><br>
 
-9. After clicking **"Build"**, watch as Cursor creates each file automatically, shows progress as it works, and displays the final results. The **Agents panel** will show real-time progress as each task completes.
+9. After clicking **"Build"**, watch as Cursor creates each file automatically, shows progress as it works, and displays the final results. In the **Agents panel**, it will show a "card" on the left for the agent with real-time progress as each task completes.
 
-![Implemented plan](./images/cursor17.png?raw=true "Implemented plan")
+![Progress](./images/cursor114.png?raw=true "Progress")
 
 <br><br>
 
-10. Above the chat area, you should see text like **"3 Files"** indicating how many files were changed. You can expand that and see the proposed changes by clicking on the files. You can review each proposed change and select **"Undo"** or **"Keep"** on each, or you can just select **"Keep All"** in the area above chat to keep all proposed changes. 
+10. Above the chat area, you should see text like **"3 Files"** indicating how many files were changed. You can expand that and see the proposed changes by clicking on the files. At any point, you can also click on the "Review All" link to see the reviewed changes (even after accepting them).
+
+![Progress](./images/cursor115.png?raw=true "Progress")
+
+<br><br>
+
+11. You can review each proposed change and select **"Undo"** or **"Keep"** on each, or you can just select **"Keep All"** in the area above chat to keep all proposed changes.
+    
 ![Reviewing changes](./images/cursor18.png?raw=true "Reviewing changes")
-
 
 <br><br>
 
